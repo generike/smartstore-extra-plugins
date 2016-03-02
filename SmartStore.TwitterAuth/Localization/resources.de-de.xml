@@ -1,0 +1,23 @@
+﻿<Language Name="Deutsch" IsDefault="true" IsRightToLeft="false">
+  <LocaleResource Name="Plugins.FriendlyName.SmartStore.TwitterAuth" AppendRootKey="false">
+    <Value>Twitter</Value>
+  </LocaleResource>
+  <LocaleResource Name="AdminInstruction">
+    <Value>Die Twitter-Authentifizierung funktioniert nicht, wenn die Option "Automatisch anmelden" aktiviert ist.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Login">
+    <Value>Mit Twitter anmelden</Value>
+  </LocaleResource>
+  <LocaleResource Name="ConsumerKey">
+    <Value>Consumer-Key</Value>
+  </LocaleResource>
+  <LocaleResource Name="ConsumerKey.Hint">
+    <Value>Geben Sie hier Ihren Consumer-Key an.</Value>
+  </LocaleResource>
+  <LocaleResource Name="ConsumerSecret">
+    <Value>Consumer-Secret</Value>
+  </LocaleResource>
+  <LocaleResource Name="ConsumerSecret.Hint">
+    <Value>Geben Sie hier Ihren Consumer-Secret an.</Value>
+  </LocaleResource>
+</Language>

@@ -1,0 +1,9 @@
+﻿FriendlyName: FedEx
+SystemName: SmartStore.FedEx
+Group: Shipping
+Version: 2.5.0
+MinAppVersion: 2.5.0
+DisplayOrder: 1
+FileName: SmartStore.Fedex.dll
+ResourceRootKey: Plugins.Shipping.FedEx
+Url: http://community.smartstore.com/marketplace/file/40-fedex-shipping/

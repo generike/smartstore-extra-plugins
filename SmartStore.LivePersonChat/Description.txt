@@ -1,0 +1,8 @@
+﻿FriendlyName: Live person chat
+Group: Social
+Version: 2.5.0
+MinAppVersion: 2.5.0
+DisplayOrder: 1
+SystemName: SmartStore.LivePersonChat
+FileName: SmartStore.LivePersonChat.dll
+ResourceRootKey: Plugins.Widgets.LivePersonChat

@@ -234,3 +234,34 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+# Symlinks
+*-sym.*
+*-symdir/
+[Ee]xternal[Ff]iles/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Mac crap
+.DS_Store
+
+# Backups
+[Bb]ackup/
+[Bb]ackups/
+_[Bb]ackup/
+_[Bb]ackups/
+*.bak
+*.orig
+Kopie von*
+
+# Specific
+/build
+Log.txt

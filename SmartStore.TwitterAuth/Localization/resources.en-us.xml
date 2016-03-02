@@ -1,0 +1,23 @@
+﻿<Language Name="English" IsDefault="false" IsRightToLeft="false">
+  <LocaleResource Name="Plugins.FriendlyName.SmartStore.TwitterAuth" AppendRootKey="false">
+    <Value>Twitter</Value>
+  </LocaleResource>
+	<LocaleResource Name="AdminInstruction">
+		<Value>Twitter authentication doesn't work with 'Auto register' option enabled.</Value>
+	</LocaleResource>
+  <LocaleResource Name="Login">
+    <Value>Sign in with Twitter</Value>
+  </LocaleResource>
+  <LocaleResource Name="ConsumerKey">
+    <Value>Consumer key</Value>
+  </LocaleResource>
+  <LocaleResource Name="ConsumerKey.Hint">
+    <Value>Enter your consumer key here.</Value>
+  </LocaleResource>
+  <LocaleResource Name="ConsumerSecret">
+    <Value>Consumer secret</Value>
+  </LocaleResource>
+  <LocaleResource Name="ConsumerSecret.Hint">
+    <Value>Enter your consumer secret here.</Value>
+  </LocaleResource>
+</Language>

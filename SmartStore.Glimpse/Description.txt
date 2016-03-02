@@ -1,0 +1,10 @@
+﻿FriendlyName: Glimpse Web Debugger
+SystemName: SmartStore.Glimpse
+Group: Developer
+Version: 2.5.0
+MinAppVersion: 2.5.0
+Author: SmartStore AG
+DisplayOrder: 1
+FileName: SmartStore.Glimpse.dll
+ResourceRootKey: Plugins.Developer.Glimpse
+Url: http://community.smartstore.com/marketplace/file/31-glimpse-web-debugger/

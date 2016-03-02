@@ -1,0 +1,65 @@
+﻿<Language Name="Deutsch" IsDefault="true" IsRightToLeft="false">
+  <LocaleResource Name="Plugins.FriendlyName.SmartStore.MailChimp" AppendRootKey="false">
+    <Value>MailChimp E-Mail Synchronisierung</Value>
+  </LocaleResource>
+  <LocaleResource Name="AdminInstruction">
+    <Value>
+      <![CDATA[
+      <p>
+        Mit diesem Plugin können Sie Ihre Newsletter-Abonnenten direkt mit Ihren MailChimp Empfänger-Listen synchronisieren.
+      </p>
+      <ol>
+        <li>
+              Geben Sie Ihren API-Key an. Weitere Informationen zum API-Key finden Sie hier:<br/>
+              <a href="http://kb.mailchimp.com/article/where-can-i-find-my-api-key" target="_blank">http://kb.mailchimp.com/article/where-can-i-find-my-api-key</a>
+        </li>
+        <li>
+              Wählen Sie die MailChimp Empfänger-Liste, die Sie mit den Daten aus Ihrem Shop synchronisieren wollen
+        </li>
+        <li>
+              Importieren Sie nun erstmalig alle Newsletter-Abonnenten (WICHTIG: Dieser Vorgang sollte nur einmal vorgenommen werden!)
+        </li>
+        <li>
+              Entscheiden Sie ob die Synchronistaion automatisch oder manuell vorgenommen wird.<br />
+              a) Automatisch: Aktivieren Sie die entsprechende Option<br />
+              b) Manuell: Klicken Sie auf den Button <b>Manuelle Synchronisation</b> wenn die Synchronisation durchgeführt werden soll.<br />
+        </li>
+        <li>
+              Geben Sie den WebHooks-Key an, um über das unsubscribe-Event von MailChimp informiert zu werden. Weiter Informationen zu WebHooks finden Sie hier:<br />
+              <a href="http://apidocs.mailchimp.com/webhooks/" target="_blank">http://apidocs.mailchimp.com/webhooks/</a>
+        </li>
+      </ol>
+      ]]>
+    </Value>
+  </LocaleResource>  
+  <LocaleResource Name="ApiKey">
+    <Value>MailChimp API-Key</Value>
+  </LocaleResource>
+  <LocaleResource Name="DefaultListId">
+    <Value>Standard MailChimp Liste</Value>
+  </LocaleResource>
+  <LocaleResource Name="AutoSync">
+    <Value>Benutze AutoSync-Task</Value>
+  </LocaleResource>
+  <LocaleResource Name="AutoSyncEachMinutes">
+    <Value>AutoSync-Task Interval (Minuten)</Value>
+  </LocaleResource>
+  <LocaleResource Name="AutoSyncRestart">
+    <Value>Wenn das Interval für den Task geändert wurde, starten Sie die Anwendung bitte neu.</Value>
+  </LocaleResource>
+  <LocaleResource Name="WebHookKey">
+    <Value>WebHooks-Key</Value>
+  </LocaleResource>
+  <LocaleResource Name="QueueAll">
+    <Value>Erstmaliger Import</Value>
+  </LocaleResource>
+  <LocaleResource Name="QueueAll.Hint">
+    <Value>Erstmaliger Import aller vorhandenen Newsletter-Abonnenten in die MailChimp Datenbank (nur einmal durchführen)</Value>
+  </LocaleResource>
+  <LocaleResource Name="ManualSync">
+    <Value>Manuelle Synchronisation</Value>
+  </LocaleResource>
+  <LocaleResource Name="ManualSync.Hint">
+    <Value>Manuelle Synchronisation der Newsletter Abonnenten mit der MailChimp Datenbank</Value>
+  </LocaleResource>
+</Language>

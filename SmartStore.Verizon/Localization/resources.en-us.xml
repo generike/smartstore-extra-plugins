@@ -1,0 +1,45 @@
+﻿<Language Name="English" IsDefault="false" IsRightToLeft="false">
+  <LocaleResource Name="Plugins.FriendlyName.SmartStore.Verizon" AppendRootKey="false">
+    <Value>Verizon SMS Provider</Value>
+  </LocaleResource>
+
+  <LocaleResource Name="TestFailed">
+    <Value>Sending of test message failed.</Value>
+  </LocaleResource>
+  <LocaleResource Name="TestSuccess">
+    <Value>Test message was sent (queued).</Value>
+  </LocaleResource>
+  <LocaleResource Name="Enabled">
+    <Value>Enabled</Value>
+  </LocaleResource>
+  <LocaleResource Name="Enabled.Hint">
+    <Value>Check to enable the SMS provider.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Email">
+    <Value>Email</Value>
+  </LocaleResource>
+  <LocaleResource Name="Email.Hint">
+    <Value>Specifies the Verizon email address (e.g. your_phone_number@vtext.com).</Value>
+  </LocaleResource>
+  <LocaleResource Name="TestMessage">
+    <Value>Message text</Value>
+  </LocaleResource>
+  <LocaleResource Name="TestMessage.Hint">
+    <Value>The text of the test message.</Value>
+  </LocaleResource>
+  <LocaleResource Name="EnterTestMessage">
+    <Value>Pleaser enter a text for the message.</Value>
+  </LocaleResource>
+  <LocaleResource Name="SendTest">
+    <Value>Send</Value>
+  </LocaleResource>
+  <LocaleResource Name="SendTest.Hint">
+    <Value>Send test message</Value>
+  </LocaleResource>
+  <LocaleResource Name="OrderPlacedMessage">
+    <Value>A new order {0} has been placed.</Value>
+  </LocaleResource>
+  <LocaleResource Name="OrderPlacedMessageSend">
+    <Value>"Order placed" SMS alert has been sent to the store owner.</Value>
+  </LocaleResource>
+</Language>

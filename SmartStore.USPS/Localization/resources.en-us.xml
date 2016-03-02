@@ -1,0 +1,56 @@
+﻿<Language Name="English" IsDefault="false" IsRightToLeft="false">
+  <LocaleResource Name="Plugins.FriendlyName.SmartStore.USPS" AppendRootKey="false">
+    <Value>USPS</Value>
+  </LocaleResource>
+  
+	<LocaleResource Name="AdminInstruction">
+		<Value>
+			<![CDATA[
+        
+      ]]>
+		</Value>
+	</LocaleResource>
+
+  <LocaleResource Name="Fields.UseSandbox">
+		<Value>Use Sandbox</Value>
+	</LocaleResource>
+	<LocaleResource Name="Fields.UseSandbox.Hint">
+		<Value>Check the box to enable Sandbox (testing environment).</Value>
+	</LocaleResource>
+	<LocaleResource Name="Fields.Username">
+		<Value>Username</Value>
+	</LocaleResource>
+	<LocaleResource Name="Fields.Username.Hint">
+		<Value>Please enter your USPS username.</Value>
+	</LocaleResource>
+	<LocaleResource Name="Fields.Password">
+		<Value>Password</Value>
+	</LocaleResource>
+	<LocaleResource Name="Fields.Password.Hint">
+		<Value>Please enter your USPS password.</Value>
+	</LocaleResource>
+	<LocaleResource Name="Fields.AdditionalHandlingCharge">
+		<Value>Additional fee</Value>
+	</LocaleResource>
+	<LocaleResource Name="Fields.AdditionalHandlingCharge.Hint">
+		<Value>Enter additional fee to charge your customers.</Value>
+	</LocaleResource>
+	<LocaleResource Name="Fields.ZipPostalCodeFrom">
+		<Value>Shipped from zip</Value>
+	</LocaleResource>
+	<LocaleResource Name="Fields.ZipPostalCodeFrom.Hint">
+		<Value>Please enter your origin zip code.</Value>
+	</LocaleResource>
+	<LocaleResource Name="Fields.AvailableCarrierServicesDomestic">
+		<Value>Domestic Carrier Services</Value>
+	</LocaleResource>
+	<LocaleResource Name="Fields.AvailableCarrierServicesDomestic.Hint">
+		<Value>Select the services you want to offer to customers.</Value>
+	</LocaleResource>
+	<LocaleResource Name="Fields.AvailableCarrierServicesInternational">
+		<Value>International Carrier Services</Value>
+	</LocaleResource>
+	<LocaleResource Name="Fields.AvailableCarrierServicesInternational.Hint">
+		<Value>Select the services you want to offer to customers.</Value>
+	</LocaleResource>
+</Language>

@@ -1,0 +1,66 @@
+﻿<Language Name="English" IsDefault="false" IsRightToLeft="false">
+  <LocaleResource Name="Plugins.FriendlyName.SmartStore.MailChimp" AppendRootKey="false">
+    <Value>MailChimp e-mail synchronization</Value>
+  </LocaleResource>
+  <LocaleResource Name="AdminInstruction">
+    <Value>
+      <![CDATA[
+      <p>
+          This Plugin synchronizes your newsletter subscribers directly with your MailChimp lists.
+      </p>
+      <ol>
+        <li>
+          Enter your MailChimp API-Key. More Information about the API-Key can be found here:<br />
+          <a href="http://kb.mailchimp.com/article/where-can-i-find-my-api-key" target="_blank">http://kb.mailchimp.com/article/where-can-i-find-my-api-key</a>
+        </li>
+        <li>
+          Choose the MailChimp list with which you want to synchronize the data from your shop
+        </li>
+        <li>
+          Import all Newsletter-Subscribers for the first time. (Important: This procedure should only be executed once)
+        </li>
+        <li>
+          Decide whether to synchronize automatically or manual<br />
+          a) automatically: Active the appropriate option<br />
+          b) manual: Click the button <b>manual Synchronization</b> whenever the synchronization should be executed<br />
+        </li>
+        <li>
+          Enter your WebHooks-Key to get informed about the unsubscribe event from MAilChimp. Further information about WebHooks can be found here<br />
+          <a href="http://apidocs.mailchimp.com/webhooks/" target="_blank">http://apidocs.mailchimp.com/webhooks/</a>
+        </li>
+      </ol>
+      ]]>
+    </Value>
+  </LocaleResource>
+  
+  <LocaleResource Name="ApiKey">
+    <Value>MailChimp API Key</Value>
+  </LocaleResource>
+  <LocaleResource Name="DefaultListId">
+    <Value>Default MailChimp List</Value>
+  </LocaleResource>
+  <LocaleResource Name="AutoSync">
+    <Value>Use AutoSync task</Value>
+  </LocaleResource>
+  <LocaleResource Name="AutoSyncEachMinutes">
+    <Value>AutoSync task period (minutes)</Value>
+  </LocaleResource>
+  <LocaleResource Name="AutoSyncRestart">
+    <Value>If sync task period has been changed, please restart the application</Value>
+  </LocaleResource>
+  <LocaleResource Name="WebHookKey">
+    <Value>WebHooks Key</Value>
+  </LocaleResource>
+  <LocaleResource Name="QueueAll">
+    <Value>Initial Queue</Value>
+  </LocaleResource>
+  <LocaleResource Name="QueueAll.Hint">
+    <Value>Queue existing newsletter subscribers (run only once)</Value>
+  </LocaleResource>
+  <LocaleResource Name="ManualSync">
+    <Value>Manual Sync</Value>
+  </LocaleResource>
+  <LocaleResource Name="ManualSync.Hint">
+    <Value>Manually synchronize newsletter subscribers with MailChimp database</Value>
+  </LocaleResource>
+</Language>

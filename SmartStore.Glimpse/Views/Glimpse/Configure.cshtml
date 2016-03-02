@@ -1,0 +1,203 @@
+﻿@using SmartStore.Web.Framework;
+@model SmartStore.Glimpse.GlimpseSettings
+@{
+    Layout = "";
+}
+
+<div class="alert alert-info">
+    <button class="close" data-dismiss="alert">&#215;</button>
+    @Html.Raw(@T("Plugins.Developer.Glimpse.AdminInstruction", Url.Content("~/Glimpse")))
+</div>
+
+@Html.Action("StoreScopeConfiguration", "Setting", new { area = "Admin" })
+	
+@using (Html.BeginForm())
+{  
+    <table class="adminContent">
+		<tr>
+			<td colspan="2">
+				<div class="admin-config-group">
+					<div class="title">Console</div>
+				</div>
+			</td>
+		</tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.IsEnabled)
+            </td>
+            <td class="adminData">
+                @Html.SettingEditorFor(model => model.IsEnabled)
+                @Html.ValidationMessageFor(model => model.IsEnabled)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.ShowConsoleInAdminArea)
+            </td>
+            <td class="adminData">
+                @Html.SettingEditorFor(model => model.ShowConsoleInAdminArea)
+                @Html.ValidationMessageFor(model => model.ShowConsoleInAdminArea)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.AllowAdministratorsOnly)
+            </td>
+            <td class="adminData">
+                @Html.SettingEditorFor(model => model.AllowAdministratorsOnly)
+                @Html.ValidationMessageFor(model => model.AllowAdministratorsOnly)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.EnableOnRemoteServer)
+            </td>
+            <td class="adminData">
+                @Html.SettingEditorFor(model => model.EnableOnRemoteServer)
+                @Html.ValidationMessageFor(model => model.EnableOnRemoteServer)
+            </td>
+        </tr>
+    </table>
+
+    <table class="adminContent">
+		<tr>
+			<td colspan="2">
+				<div class="admin-config-group">
+					<div class="title">
+						Tabs
+						<span class="sub-title">(after changing one of following settings you must restart the app in order for them to take effect)</span>
+					</div>
+				</div>
+			</td>
+		</tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.ShowConfigurationTab)
+            </td>
+            <td class="adminData">
+                @Html.SettingEditorFor(model => model.ShowConfigurationTab)
+                @Html.ValidationMessageFor(model => model.ShowConfigurationTab)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.ShowEnvironmentTab)
+            </td>
+            <td class="adminData">
+                @Html.SettingEditorFor(model => model.ShowEnvironmentTab)
+                @Html.ValidationMessageFor(model => model.ShowEnvironmentTab)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.ShowRequestTab)
+            </td>
+            <td class="adminData">
+                @Html.SettingEditorFor(model => model.ShowRequestTab)
+                @Html.ValidationMessageFor(model => model.ShowRequestTab)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.ShowRoutesTab)
+            </td>
+            <td class="adminData">
+                @Html.SettingEditorFor(model => model.ShowRoutesTab)
+                @Html.ValidationMessageFor(model => model.ShowRoutesTab)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.ShowServerTab)
+            </td>
+            <td class="adminData">
+                @Html.SettingEditorFor(model => model.ShowServerTab)
+                @Html.ValidationMessageFor(model => model.ShowServerTab)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.ShowSessionTab)
+            </td>
+            <td class="adminData">
+                @Html.SettingEditorFor(model => model.ShowSessionTab)
+                @Html.ValidationMessageFor(model => model.ShowSessionTab)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.ShowExecutionTab)
+            </td>
+            <td class="adminData">
+                @Html.SettingEditorFor(model => model.ShowExecutionTab)
+                @Html.ValidationMessageFor(model => model.ShowExecutionTab)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.ShowMetadataTab)
+            </td>
+            <td class="adminData">
+                @Html.SettingEditorFor(model => model.ShowMetadataTab)
+                @Html.ValidationMessageFor(model => model.ShowMetadataTab)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.ShowModelBindingTab)
+            </td>
+            <td class="adminData">
+                @Html.SettingEditorFor(model => model.ShowModelBindingTab)
+                @Html.ValidationMessageFor(model => model.ShowModelBindingTab)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.ShowViewsTab)
+            </td>
+            <td class="adminData">
+                @Html.SettingEditorFor(model => model.ShowViewsTab)
+                @Html.ValidationMessageFor(model => model.ShowViewsTab)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.ShowTimelineTab)
+            </td>
+            <td class="adminData">
+                @Html.SettingEditorFor(model => model.ShowTimelineTab)
+                @Html.ValidationMessageFor(model => model.ShowTimelineTab)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.ShowTraceTab)
+            </td>
+            <td class="adminData">
+                @Html.SettingEditorFor(model => model.ShowTraceTab)
+                @Html.ValidationMessageFor(model => model.ShowTraceTab)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.ShowSqlTab)
+            </td>
+            <td class="adminData">
+                @Html.SettingEditorFor(model => model.ShowSqlTab)
+                @Html.ValidationMessageFor(model => model.ShowSqlTab)
+            </td>
+        </tr>
+
+        <tr>
+			<td class="adminTitle">
+				&nbsp;
+			</td>
+			<td class="adminData">
+                <button type="submit" name="save" value="save" class="btn btn-primary">
+				    <i class="fa fa-check"></i>
+                    @T("Admin.Common.Save")
+                </button>
+            </td>
+        </tr>
+    </table>
+}

@@ -1,0 +1,73 @@
+﻿@using SmartStore.AuthorizeNet.Models;
+@using SmartStore.Web.Framework;
+@model ConfigurationModel
+@{
+	Layout = "";
+}
+
+@using (Html.BeginForm())
+{
+    <table class="adminContent">
+        <tr>
+            <td colspan="2">
+				<div class="alert alert-info">
+					@T("Plugins.Payments.AuthorizeNet.Notes")
+				</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.UseSandbox)
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.UseSandbox)
+                @Html.ValidationMessageFor(model => model.UseSandbox)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.TransactModeValues)
+            </td>
+            <td class="adminData">
+                @Html.DropDownList("TransactModeId", Model.TransactModeValues)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.TransactionKey)
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.TransactionKey)
+                @Html.ValidationMessageFor(model => model.TransactionKey)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.LoginId)
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.LoginId)
+                @Html.ValidationMessageFor(model => model.LoginId)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.AdditionalFee)
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.AdditionalFee)
+                @Html.ValidationMessageFor(model => model.AdditionalFee)
+            </td>
+        </tr>
+        <tr>
+			<td class="adminTitle">
+				&nbsp;
+			</td>
+			<td class="adminData">
+                <button type="submit" name="save" class="btn btn-primary">
+					<i class="fa fa-check"></i>&nbsp;@T("Admin.Common.Save")
+				</button>
+            </td>
+        </tr>
+    </table>    
+}

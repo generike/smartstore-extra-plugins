@@ -1,0 +1,49 @@
+﻿<Language Name="Deutsch" IsDefault="true" IsRightToLeft="false">
+
+  <LocaleResource Name="Plugins.FriendlyName.SmartStore.AuthorizeNet" AppendRootKey="false">
+    <Value>Authorize.Net</Value>
+  </LocaleResource>
+  <LocaleResource Name="Plugins.Description.SmartStore.AuthorizeNet" AppendRootKey="false">
+    <Value>Ermöglicht Zahlung per Kreditkarte mit Authorize.Net.</Value>
+  </LocaleResource>
+
+  <LocaleResource Name="Plugins.Payments.AuthorizeNet" AppendRootKey="false">
+    <Children>
+      <LocaleResource Name="Notes">
+        <Value>Wenn Sie diese Schnittstelle nutzen, stellen Sie sicher, dass Ihre primäre Währung von Authorize.NET unterstützt wird.</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.UseSandbox">
+        <Value>Sandbox nutzen</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.UseSandbox.Hint">
+        <Value>Aktiviert die Sandbox (Testumgebung).</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.TransactModeValues">
+        <Value>Transaktionsmodus</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.TransactModeValues.Hint">
+        <Value>Wählen Sie den Transaktionsmodus</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.TransactionKey">
+        <Value>Transaktionsschlüssel</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.TransactionKey.Hint">
+        <Value>Geben Sie den Transaktionsschlüssel an.</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.LoginId">
+        <Value>Login ID</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.LoginId.Hint">
+        <Value>Geben Sie Ihre Login-ID an.</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.AdditionalFee">
+        <Value>Zusätzliche Gebühr</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.AdditionalFee.Hint">
+        <Value>Geben Sie hier eine zusätzliche Gebühr an die dem Kunden für die Nutzung dieser Zahlart berechnet wird.</Value>
+      </LocaleResource>
+    </Children>
+  </LocaleResource>
+
+  
+</Language>

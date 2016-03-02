@@ -1,0 +1,6 @@
+﻿.checkbox-container {
+    height: 250px; 
+    width: 300px; 
+    overflow: auto; 
+    border: solid 1px #bbb;
+}

@@ -1,0 +1,47 @@
+﻿<Language Name="English" IsDefault="false" IsRightToLeft="false">
+  <LocaleResource Name="Plugins.FriendlyName.SmartStore.LivePersonChat" AppendRootKey="false">
+    <Value>Live person (Chat)</Value>
+  </LocaleResource>
+  <LocaleResource Name="AdminInstruction">
+    <Value>
+      <![CDATA[
+        <p>Please find our step by step set up guide detailed below:</p>
+        <ul>
+            <li><b>Download</b>. Download the software here: <a href="http://solutions.liveperson.com/help/download.asp"
+                target='_blank'>http://solutions.liveperson.com/help/download.asp</a> </li>
+            <li><b>Learn how to setup</b>. Getting started for Pro Administrators: <a href="http://solutions.liveperson.com/training/gettingstarted_pro_admin.asp"
+                target='_blank'>http://solutions.liveperson.com/training/gettingstarted_pro_admin.asp</a>
+            </li>
+            <li><b>Apply Knowledge</b>. Login in your Admin Console, configure your account and
+                embed your pages: <a href="https://server.iad.liveperson.net/hc/web/public/pub/ma/lp/login.jsp"
+                    target='_blank'>https://server.iad.liveperson.net/hc/web/public/pub/ma/lp/login.jsp</a>
+                <ul>
+                    <li>Click on the 'Admin Console' button on the toolbar. </li>
+                    <li>Click on 'Account Setup' and then 'Page Code Builder'. </li>
+                    <li>Follow the wizard to generate the monitor code and button tag code you wish to use on your store. </li>
+                    <li>Paste the provided values from the 'Button Tag' and 'Monitor Tag' text boxes in to the appropriate boxes below. </li>
+                </ul>
+            </li>
+            <li><b>Learn how to use the Operator Console (Agent)</b>. Getting started for Pro Operators:
+                <a href="http://solutions.liveperson.com/training/gettingstarted_pro_op.asp" target='_blank'>
+                    http://solutions.liveperson.com/training/gettingstarted_pro_op.asp</a> </li>
+        </ul>
+      ]]>
+    </Value>
+  </LocaleResource>
+  <LocaleResource Name="LiveChat">
+    <Value>Live chat</Value>
+  </LocaleResource>
+  <LocaleResource Name="ButtonCode">
+    <Value>Button code(max 2000)</Value>
+  </LocaleResource>
+  <LocaleResource Name="ButtonCode.Hint">
+    <Value>Enter your button code here.</Value>
+  </LocaleResource>
+  <LocaleResource Name="MonitoringCode">
+    <Value>Monitoring code(max 2000)</Value>
+  </LocaleResource>
+  <LocaleResource Name="MonitoringCode.Hint">
+    <Value>Enter your monitoring code here.</Value>
+  </LocaleResource>
+</Language>

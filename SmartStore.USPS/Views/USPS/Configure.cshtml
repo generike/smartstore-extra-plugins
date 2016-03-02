@@ -1,0 +1,97 @@
+﻿@{
+    Layout = "";
+}
+@model SmartStore.USPS.Models.USPSModel
+@using SmartStore.Web.Framework;
+@using (Html.BeginForm())
+{
+    <table class="adminContent">
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.UseSandbox)
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.UseSandbox)
+                @Html.ValidationMessageFor(model => model.UseSandbox)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.Username)
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.Username)
+                @Html.ValidationMessageFor(model => model.Username)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.Password)
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.AdditionalHandlingCharge)
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.AdditionalHandlingCharge)
+                @Html.ValidationMessageFor(model => model.AdditionalHandlingCharge)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.ZipPostalCodeFrom)
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.ZipPostalCodeFrom)
+                @Html.ValidationMessageFor(model => model.ZipPostalCodeFrom)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.AvailableCarrierServicesDomestic)
+            </td>
+            <td class="adminData">
+                <div style="height: 250px; width: 300px; overflow: auto; border: solid 1px #bbb; padding: 10px">
+                    @foreach (var csd in Model.AvailableCarrierServicesDomestic)
+                    {
+                        <label class="checkbox">
+							<input type="checkbox" name="CheckedCarrierServicesDomestic" value="@(csd)" @(Model.CarrierServicesOfferedDomestic.Contains(csd) ? Html.Raw(" checked=\"checked\"") : null) />
+							@csd
+						</label>
+                    }
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.AvailableCarrierServicesInternational)
+            </td>
+            <td class="adminData">
+                <div style="height: 250px; width: 300px; overflow: auto; border: solid 1px #bbb; padding: 10px">
+                    @foreach (var csi in Model.AvailableCarrierServicesInternational)
+                    {
+                        <label class="checkbox">
+							<input type="checkbox" name="CheckedCarrierServicesInternational" value="@(csi)" @(Model.CarrierServicesOfferedInternational.Contains(csi) ? Html.Raw(" checked=\"checked\"") : null) />
+							@csi
+						</label>
+                    }
+                </div>
+            </td>
+        </tr>
+        <tr>
+			<td class="adminTitle">
+				&nbsp;
+			</td>
+			<td class="adminData">
+                <button type="submit" name="save" value="save" class="btn btn-primary">
+					<i class="fa fa-check"></i>&nbsp;@T("Admin.Common.Save")
+				</button>
+            </td>
+        </tr>
+    </table>    
+}

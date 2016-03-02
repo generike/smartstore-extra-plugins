@@ -1,0 +1,10 @@
+﻿@using SmartStore.Web.Framework.UI
+@{
+	Layout = "";
+	Html.AddCssFileParts(true, "~/Plugins/SmartStore.TwitterAuth/Content/twitterstyles.css");
+}
+
+<a class="btn btn-primary btn-extauth btn-twitter btn-block" href="@Url.RouteUrl("SmartStore.TwitterAuth", new { returnUrl = HttpContext.Current.Request.QueryString["ReturnUrl"], action = "Login" })">
+	<i class="fa fa-fw fa-lg fa-twitter-square"></i>
+	@T("Plugins.ExternalAuth.Twitter.Login")
+</a>

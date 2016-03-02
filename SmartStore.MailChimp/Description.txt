@@ -1,0 +1,9 @@
+﻿FriendlyName: MailChimp E-Mail Synchronization
+SystemName: SmartStore.MailChimp
+Group: Marketing
+Version: 2.5.0
+MinAppVersion: 2.5.0
+DisplayOrder: 1
+FileName: SmartStore.MailChimp.dll
+ResourceRootKey: Plugins.Misc.MailChimp
+Url: http://community.smartstore.com/marketplace/file/28-mailchimp-e-mail-synchronization/

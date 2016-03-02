@@ -1,0 +1,55 @@
+﻿<Language Name="Deutsch" IsDefault="true" IsRightToLeft="false">
+	<LocaleResource Name="Plugins.FriendlyName.SmartStore.USPS" AppendRootKey="false">
+		<Value>USPS</Value>
+	</LocaleResource>
+  
+	<LocaleResource Name="AdminInstruction">
+		<Value>
+			<![CDATA[
+      ]]>
+		</Value>
+	</LocaleResource>
+  
+  <LocaleResource Name="Fields.UseSandbox">
+    <Value>Sandbox benutzen</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.UseSandbox.Hint">
+    <Value>Aktivieren Sie diese Option wenn Sie das Plugin im Testmodus betreiben wollen.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Username">
+    <Value>Benutzername</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Username.Hint">
+    <Value>Bitte geben Sie Ihren USPS-Benutzernamen an.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Password">
+    <Value>Password</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Password.Hint">
+    <Value>Bitte geben Sie Ihr USPS-Passwort an.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AdditionalHandlingCharge">
+    <Value>Zusätzliche Gebühr</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AdditionalHandlingCharge.Hint">
+    <Value>Bitte geben Sie die zusätzliche Gebühr an die Sie Ihren Kunden für die Nutzung dieser Versandart berechnen</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.ZipPostalCodeFrom">
+    <Value>Versendet aus PLZ-Gebiet</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.ZipPostalCodeFrom.Hint">
+    <Value>Bitte geben Sie das PLZ-Gebiet an von dem aus die Waren versendet werden.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AvailableCarrierServicesDomestic">
+    <Value>Domestic Carrier Services</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AvailableCarrierServicesDomestic.Hint">
+    <Value>Wählen Sie die Dienste die Sie Ihren Kunden anbieten wollen.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AvailableCarrierServicesInternational">
+    <Value>International Carrier Services</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AvailableCarrierServicesInternational.Hint">
+    <Value>Wählen Sie die Dienste die Sie Ihren Kunden anbieten wollen.</Value>
+  </LocaleResource>
+</Language>

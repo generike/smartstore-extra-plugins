@@ -1,0 +1,137 @@
+﻿<Language Name="English" IsDefault="false" IsRightToLeft="false">
+	<LocaleResource Name="Plugins.FriendlyName.SmartStore.FedEx" AppendRootKey="false">
+		<Value>FedEx</Value>
+	</LocaleResource>	
+	<LocaleResource Name="Fields.Url">
+		<Value>URL</Value>
+	</LocaleResource>
+  <LocaleResource Name="Fields.Url.Hint">
+    <Value>Specify FedEx URL.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Key">
+    <Value>Key</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Key.Hint">
+    <Value>Specify FedEx key.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Password">
+    <Value>Password</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Password.Hint">
+    <Value>Specify FedEx password.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AccountNumber">
+    <Value>Account number</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AccountNumber.Hint">
+    <Value>Specify FedEx account number.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.MeterNumber">
+    <Value>Meter number</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.MeterNumber.Hint">
+    <Value>Specify FedEx meter number.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.UseResidentialRates">
+    <Value>Use residential rates</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.UseResidentialRates.Hint">
+    <Value>Check the box to use residential rates.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.ApplyDiscounts">
+    <Value>Use discounted rates</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.ApplyDiscounts.Hint">
+    <Value>Check the box to use discounted rates (instead of list rates).</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AdditionalHandlingCharge">
+    <Value>Additional handling charge</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AdditionalHandlingCharge.Hint">
+    <Value>Enter additional handling fee to charge your customers.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.CarrierServices">
+    <Value>Carrier Services Offered</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.CarrierServices.Hint">
+    <Value>Select the services you want to offer to customers.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Street">
+    <Value>Shipping origin. Street</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Street.Hint">
+    <Value>Shipping origin street.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.City">
+    <Value>Shipping origin. City</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.City.Hint">
+    <Value>Specify origin city.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.StateOrProvinceCode">
+    <Value>Shipping origin. State code (2 characters)</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.StateOrProvinceCode.Hint">
+    <Value>Shipping origin. State code (2 characters).</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.PostalCode">
+    <Value>Shipping origin. Zip</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.PostalCode.Hint">
+    <Value>Specify origin zip code.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.CountryCode">
+    <Value>Shipping origin. Country code</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.CountryCode.Hint">
+    <Value>Specify origin country code.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.PassDimensions">
+    <Value>Pass dimensions</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.PassDimensions.Hint">
+    <Value>Check the box if you want to pass package dimensions when requesting rates.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.PackingType">
+    <Value>Packing type</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.PackingType.Hint">
+    <Value>Choose preferred packing type.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Enums.SmartStore.Plugin.Shipping.Fedex.PackingType.PackByDimensions" AppendRootKey="false">
+    <Value>Pack by dimensions</Value>
+  </LocaleResource>
+  <LocaleResource Name="Enums.SmartStore.Plugin.Shipping.Fedex.PackingType.PackByOneItemPerPackage" AppendRootKey="false">
+    <Value>Pack by one item per package</Value>
+  </LocaleResource>
+  <LocaleResource Name="Enums.SmartStore.Plugin.Shipping.Fedex.PackingType.PackByVolume" AppendRootKey="false">
+    <Value>Pack by volume</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.PackingPackageVolume">
+    <Value>Package volume</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.PackingPackageVolume.Hint">
+    <Value>Enter your package volume.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.DropoffType">
+    <Value>Dropoff Type</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.DropoffType.Hint">
+    <Value>Choose preferred dropoff type.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Enums.SmartStore.Plugin.Shipping.Fedex.DropoffType.BusinessServiceCenter" AppendRootKey="false">
+    <Value>Business service center</Value>
+  </LocaleResource>
+  <LocaleResource Name="Enums.SmartStore.Plugin.Shipping.Fedex.DropoffType.DropBox" AppendRootKey="false">
+    <Value>Drop box</Value>
+  </LocaleResource>
+  <LocaleResource Name="Enums.SmartStore.Plugin.Shipping.Fedex.DropoffType.RegularPickup" AppendRootKey="false">
+    <Value>Regular pickup</Value>
+  </LocaleResource>
+  <LocaleResource Name="Enums.SmartStore.Plugin.Shipping.Fedex.DropoffType.RequestCourier" AppendRootKey="false">
+    <Value>Request courier</Value>
+  </LocaleResource>
+  <LocaleResource Name="Enums.SmartStore.Plugin.Shipping.Fedex.DropoffType.Station" AppendRootKey="false">
+    <Value>Station</Value>
+  </LocaleResource>
+</Language>

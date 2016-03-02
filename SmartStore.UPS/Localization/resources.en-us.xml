@@ -1,0 +1,98 @@
+﻿<Language Name="English" IsDefault="false" IsRightToLeft="false">
+  <LocaleResource Name="Plugins.FriendlyName.SmartStore.UPS" AppendRootKey="false">
+    <Value>UPS (United Parcel Service)</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Url">
+    <Value>URL</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Url.Hint">
+    <Value>Specify UPS URL.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AccessKey">
+    <Value>Access Key</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AccessKey.Hint">
+    <Value>Specify UPS access key.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Username">
+    <Value>Username</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Username.Hint">
+    <Value>Specify UPS username.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Password">
+    <Value>Password</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Password.Hint">
+    <Value>Specify UPS password.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AdditionalHandlingCharge">
+    <Value>Additional handling charge</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AdditionalHandlingCharge.Hint">
+    <Value>Enter additional handling fee to charge your customers.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.InsurePackage">
+    <Value>Insure package</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.InsurePackage.Hint">
+    <Value>Check the box to ensure packages.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.CustomerClassification">
+    <Value>UPS Customer Classification</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.CustomerClassification.Hint">
+    <Value>Choose customer classification.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.PickupType">
+    <Value>UPS Pickup Type</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.PickupType.Hint">
+    <Value>Choose UPS pickup type.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.PackagingType">
+    <Value>UPS Packaging Type</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.PackagingType.Hint">
+    <Value>Choose UPS packaging type.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.DefaultShippedFromCountry">
+    <Value>Shipped from country</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.DefaultShippedFromCountry.Hint">
+    <Value>Specify origin country.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.DefaultShippedFromZipPostalCode">
+    <Value>Shipped from zip</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.DefaultShippedFromZipPostalCode.Hint">
+    <Value>Specify origin zip code.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AvailableCarrierServices">
+    <Value>Carrier Services</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AvailableCarrierServices.Hint">
+    <Value>Select the services you want to offer to customers.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Tracker.Departed">
+    <Value>Departed</Value>
+  </LocaleResource>
+  <LocaleResource Name="Tracker.ExportScanned">
+    <Value>Export scanned</Value>
+  </LocaleResource>
+  <LocaleResource Name="Tracker.OriginScanned">
+    <Value>Origin scanned</Value>
+  </LocaleResource>
+  <LocaleResource Name="Tracker.Arrived">
+    <Value>Arrived</Value>
+  </LocaleResource>
+  <LocaleResource Name="Tracker.NotDelivered">
+    <Value>Not delivered</Value>
+  </LocaleResource>
+  <LocaleResource Name="Tracker.Booked">
+    <Value>Booked</Value>
+  </LocaleResource>
+  <LocaleResource Name="Tracker.Delivered">
+    <Value>Delivered</Value>
+  </LocaleResource>
+</Language>

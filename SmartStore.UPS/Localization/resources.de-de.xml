@@ -1,0 +1,99 @@
+﻿<Language Name="Deutsch" IsDefault="true" IsRightToLeft="false">
+  <LocaleResource Name="Plugins.FriendlyName.SmartStore.UPS" AppendRootKey="false">
+    <Value>UPS (United Parcel Service)</Value>
+  </LocaleResource>
+
+  <LocaleResource Name="Fields.Url">
+    <Value>URL</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Url.Hint">
+    <Value>Bestimmen Sie die UPS-URL.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AccessKey">
+    <Value>Zugangsschlüssel</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AccessKey.Hint">
+    <Value>Hinterlegen Sie Ihren UPS-Zugangsschlüssel.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Username">
+    <Value>Nutzername</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Username.Hint">
+    <Value>Hinterlegen Sie Ihren UPS-Nutzernamen.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Password">
+    <Value>Passwort</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.Password.Hint">
+    <Value>Hinterlegen Sie Ihr UPS-Passwort.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AdditionalHandlingCharge">
+    <Value>Zusätzliche Gebühr</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AdditionalHandlingCharge.Hint">
+    <Value>Bestimmen Sie die zusätzliche Gebühr, die Ihren Kunden für die Nutzung dieser Zahlart berechnet werden soll.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.InsurePackage">
+    <Value>Pakete versichert versenden</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.InsurePackage.Hint">
+    <Value>Aktivieren Sie diese Option um Pakete versichert zu verschicken.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.CustomerClassification">
+    <Value>UPS Kunden-Klassifizierung</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.CustomerClassification.Hint">
+    <Value>Wählen Sie die Kunden-Klassifizierung.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.PickupType">
+    <Value>UPS Art der Abholung</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.PickupType.Hint">
+    <Value>Wählen Sie die Art der Abholung.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.PackagingType">
+    <Value>UPS Paket-Typ</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.PackagingType.Hint">
+    <Value>Wählen Sie den Paket-Typ.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.DefaultShippedFromCountry">
+    <Value>Versendet aus (Land)</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.DefaultShippedFromCountry.Hint">
+    <Value>Geben Sie das Herkunftsland an.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.DefaultShippedFromZipPostalCode">
+    <Value>Versendet von (PLZ)</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.DefaultShippedFromZipPostalCode.Hint">
+    <Value>Geben Sie die PLZ des Herkunftsortes an.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AvailableCarrierServices">
+    <Value>Carrier-Dienste</Value>
+  </LocaleResource>
+  <LocaleResource Name="Fields.AvailableCarrierServices.Hint">
+    <Value>Wählen Sie die Dienste die Sie Ihren Kunden anbieten wollen.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Tracker.Departed">
+    <Value>Vergangen</Value>
+  </LocaleResource>
+  <LocaleResource Name="Tracker.ExportScanned">
+    <Value>Export erfolrgreich</Value>
+  </LocaleResource>
+  <LocaleResource Name="Tracker.OriginScanned">
+    <Value>Bei UPS eingegangen</Value>
+  </LocaleResource>
+  <LocaleResource Name="Tracker.Arrived">
+    <Value>Angekommen</Value>
+  </LocaleResource>
+  <LocaleResource Name="Tracker.NotDelivered">
+    <Value>Nicht geliefert</Value>
+  </LocaleResource>
+  <LocaleResource Name="Tracker.Booked">
+    <Value>Gebucht</Value>
+  </LocaleResource>
+  <LocaleResource Name="Tracker.Delivered">
+    <Value>Geliefert</Value>
+  </LocaleResource>
+</Language>

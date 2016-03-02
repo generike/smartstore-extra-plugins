@@ -1,0 +1,49 @@
+﻿<Language Name="Deutsch" IsDefault="true" IsRightToLeft="false">
+
+  <LocaleResource Name="Plugins.FriendlyName.SmartStore.AuthorizeNet" AppendRootKey="false">
+    <Value>Authorize.Net</Value>
+  </LocaleResource>
+  <LocaleResource Name="Plugins.Description.SmartStore.AuthorizeNet" AppendRootKey="false">
+    <Value>Ermöglicht Zahlung per Kreditkarte mit Authorize.Net.</Value>
+  </LocaleResource>
+
+  <LocaleResource Name="Plugins.Payments.AuthorizeNet" AppendRootKey="false">
+    <Children>
+      <LocaleResource Name="Notes">
+        <Value>If you're using this gateway, ensure that your primary store currency is supported by Authorize.NET.</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.UseSandbox">
+        <Value>Use Sandbox</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.UseSandbox.Hint">
+        <Value>Check the box to enable Sandbox (testing environment).</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.TransactModeValues">
+        <Value>Transaction mode</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.TransactModeValues.Hint">
+        <Value>Choose transaction mode</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.TransactionKey">
+        <Value>Transaction key</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.TransactionKey.Hint">
+        <Value>Specify transaction key</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.LoginId">
+        <Value>Login ID</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.LoginId.Hint">
+        <Value>Specify login identifier.</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.AdditionalFee">
+        <Value>Additional fee</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.AdditionalFee.Hint">
+        <Value>Enter additional fee to charge your customers.</Value>
+      </LocaleResource>
+    </Children>
+  </LocaleResource>
+
+
+</Language>

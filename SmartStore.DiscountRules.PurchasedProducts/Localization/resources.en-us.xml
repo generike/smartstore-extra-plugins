@@ -1,0 +1,27 @@
+﻿<Language Name="Deutsch" IsDefault="true" IsRightToLeft="false">
+
+  <!-- PurchasedOneProduct -->
+  <LocaleResource Name="Plugins.DiscountRules.PurchasedOneProduct" AppendRootKey="false">
+    <Children>
+      <LocaleResource Name="Fields.Products">
+        <Value>Restricted products</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.Products.Hint">
+        <Value>The comma-separated list of product identifiers (e.g. 77, 123, 156). You can find a product ID on its detail page.</Value>
+      </LocaleResource>
+    </Children>
+  </LocaleResource>
+
+  <!-- PurchasedAllProducts -->
+  <LocaleResource Name="Plugins.DiscountRules.PurchasedAllProducts" AppendRootKey="false">
+    <Children>
+      <LocaleResource Name="Fields.Products">
+        <Value>Restricted products</Value>
+      </LocaleResource>
+      <LocaleResource Name="Fields.Products.Hint">
+        <Value>The comma-separated list of product identifiers (e.g. 77, 123, 156). You can find a product ID on its detail page.</Value>
+      </LocaleResource>
+    </Children>
+  </LocaleResource>
+
+</Language>
