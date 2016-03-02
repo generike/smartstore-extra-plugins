@@ -1,4 +1,4 @@
-## SmartStore.NET Extra Plugins Collections
+## SmartStore.NET Extra Plugins Collection
 
 This repository contains additional plugins and providers, which are not part of the [SmartStore.NET](https://github.com/smartstoreag/SmartStoreNET) core distribution:
 
