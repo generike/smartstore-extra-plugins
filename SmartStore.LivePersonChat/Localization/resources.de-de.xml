@@ -5,38 +5,29 @@
   <LocaleResource Name="AdminInstruction">
     <Value>
       <![CDATA[
-        <p>Um den LivePerson Live Chat zu aktivieren finden Sie nachfolgend eine Schritt-für-Schritt Anleitung:</p>
+        <p>Um den LiveEngage LivePerson Chat zu aktivieren finden Sie nachfolgend eine Schritt-für-Schritt Anleitung:</p>
         <ul>
-            <li><b>Download</b>. Laden Sie die Software hier herunter: <a href="http://solutions.liveperson.com/help/download.asp"
-                target='_blank'>http://solutions.liveperson.com/help/download.asp</a> </li>
-            <li><b>Erfahren Sie wie die Software eingerichtet wird</b>. Erste Schritte für Administratoren: <a href="http://solutions.liveperson.com/training/gettingstarted_pro_admin.asp"
-                target='_blank'>http://solutions.liveperson.com/training/gettingstarted_pro_admin.asp</a>
+            <li>
+              Richten Sie ein LivePerson-Konto ein: <a href="http://www.liveperson.com/de/liveengage/pricing">http://www.liveperson.com/de/liveengage/pricing</a>
             </li>
-            <li><b>Anwendung</b>. Loggen Sie sich in Ihre Admin-Konsole ein, konfigurieren Sie Ihren Account und binden Ihre Seite ein:
-               <a href="https://server.iad.liveperson.net/hc/web/public/pub/ma/lp/login.jsp"
-                    target='_blank'>https://server.iad.liveperson.net/hc/web/public/pub/ma/lp/login.jsp</a>
-                <ul>
-                    <li>Klicken Sie auf den Button "Admin Konsole" in der Toolbar</li>
-                    <li>Klicken Sie auf "Account Setup" und dann auf 'Page Code Builder'</li>
-                    <li>Folgen Sie dem Wizard um den Monitor-Code und den Button-Tag-Code zu generieren den Sie in Ihrem Store verwenden wollen.</li>
-                    <li>Kopieren Sie die angegebenen Werte des Button-Tags und des Monitor-Tags in die entsprechenden Felder in unten stehendem Formular.</li>
-                </ul>
+            <li>
+              Melden Sie sich an: <a href="https://authentication.liveperson.net/">https://authentication.liveperson.net/</a>
             </li>
-            <li><b>Erfahren Sie wie man den Operator Console (Agent) nutzt</b>. Erste Schritte für erfahrene Nutzer:
-                <a href="http://solutions.liveperson.com/training/gettingstarted_pro_op.asp" target='_blank'>
-                    http://solutions.liveperson.com/training/gettingstarted_pro_op.asp</a> </li>
+            <li>
+              Wählen Sie den Menüeintrag <em>LiveEngage Tag</em> im Konto-Dropdown (oben rechts)
+            </li>
+            <li>
+              Kopieren Sie den Monitoring-Code im unteren Textfeld
+            </li>
+            <li>
+              Fügen Sie den soeben kopierten Code hier in das untere Textfeld ein
+            </li>
         </ul>
       ]]>
     </Value>
   </LocaleResource>
   <LocaleResource Name="LiveChat">
     <Value>Live Chat</Value>
-  </LocaleResource>
-  <LocaleResource Name="ButtonCode">
-    <Value>Button-Code (maximal 2000 Zeichen)</Value>
-  </LocaleResource>
-  <LocaleResource Name="ButtonCode.Hint">
-    <Value>Geben Sie hier Ihren Button-Code an.</Value>
   </LocaleResource>
   <LocaleResource Name="MonitoringCode">
     <Value>Monitoring-Code (maximal 2000 Zeichen)</Value>
