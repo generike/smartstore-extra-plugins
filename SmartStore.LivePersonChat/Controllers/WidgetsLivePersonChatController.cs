@@ -23,14 +23,7 @@ namespace SmartStore.LivePersonChat.Controllers
         public ActionResult Configure()
         {
             var model = new ConfigurationModel();
-            model.ButtonCode = _livePersonChatSettings.ButtonCode;
             model.MonitoringCode = _livePersonChatSettings.MonitoringCode;
-
-            model.ZoneId = _livePersonChatSettings.WidgetZone;
-            model.AvailableZones.Add(new SelectListItem() { Text = "Before left side column", Value = "left_side_column_before" });
-            model.AvailableZones.Add(new SelectListItem() { Text = "After left side column", Value = "left_side_column_after" });
-            model.AvailableZones.Add(new SelectListItem() { Text = "Before right side column", Value = "right_side_column_before" });
-            model.AvailableZones.Add(new SelectListItem() { Text = "After right side column", Value = "right_side_column_after" });
 
             return View(model);
         }
@@ -43,10 +36,8 @@ namespace SmartStore.LivePersonChat.Controllers
             if (!ModelState.IsValid)
                 return Configure();
             
-            //save settings
-            _livePersonChatSettings.ButtonCode = model.ButtonCode;
+            // save settings
             _livePersonChatSettings.MonitoringCode = model.MonitoringCode;
-            _livePersonChatSettings.WidgetZone = model.ZoneId;
             _settingService.SaveSetting(_livePersonChatSettings);
 
             return Configure();
@@ -56,7 +47,6 @@ namespace SmartStore.LivePersonChat.Controllers
         public ActionResult PublicInfo(string widgetZone)
         {
             var model = new PublicInfoModel();
-            model.ButtonCode = _livePersonChatSettings.ButtonCode;
             model.MonitoringCode = _livePersonChatSettings.MonitoringCode;
 
             return View(model);

@@ -8,7 +8,7 @@ using SmartStore.Services.Tasks;
 
 namespace SmartStore.MailChimp.Services
 {
-    public class MailChimpInstallationService
+	public class MailChimpInstallationService
     {
         private readonly MailChimpObjectContext _mailChimpObjectContext;
         private readonly IScheduleTaskService _scheduleTaskService;
@@ -71,7 +71,6 @@ namespace SmartStore.MailChimp.Services
         {
             //locales
             _localizationService.DeleteLocaleStringResources(plugin.PluginDescriptor.ResourceRootKey);
-            _localizationService.DeleteLocaleStringResources("Plugins.FriendlyName.Misc.MailChimp", false);
 
             //Remove scheduled task
             var task = FindScheduledTask();

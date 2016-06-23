@@ -29,9 +29,7 @@ namespace SmartStore.LivePersonChat
         /// <returns>Widget zones</returns>
         public IList<string> GetWidgetZones()
         {
-            return !string.IsNullOrWhiteSpace(_livePersonChatSettings.WidgetZone)
-                       ? new List<string>() { _livePersonChatSettings.WidgetZone }
-                       : new List<string>() { "left_side_column_before" };
+            return new List<string>() { "head_html_tag" };
         }
 
         /// <summary>

@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web;
-using G = Glimpse;
+﻿using System.Diagnostics;
 //using Glimpse.Ado;
 //using Glimpse.EF;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-using SmartStore.Core.Plugins;
 using SmartStore.Core.Infrastructure;
-using System.Diagnostics;
+using SmartStore.Core.Plugins;
+using G = Glimpse;
 
 namespace SmartStore.Glimpse.Infrastructure
 {
-    public class GlimpseStarter : IPreApplicationStart, IStartupTask
+	public class GlimpseStarter : IPreApplicationStart, IStartupTask
     {
 
         public void Start()

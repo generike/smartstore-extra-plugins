@@ -5,38 +5,29 @@
   <LocaleResource Name="AdminInstruction">
     <Value>
       <![CDATA[
-        <p>Please find our step by step set up guide detailed below:</p>
+        <p>Please find our LiveEngage LivePerson Chat step by step setup guide detailed below:</p>
         <ul>
-            <li><b>Download</b>. Download the software here: <a href="http://solutions.liveperson.com/help/download.asp"
-                target='_blank'>http://solutions.liveperson.com/help/download.asp</a> </li>
-            <li><b>Learn how to setup</b>. Getting started for Pro Administrators: <a href="http://solutions.liveperson.com/training/gettingstarted_pro_admin.asp"
-                target='_blank'>http://solutions.liveperson.com/training/gettingstarted_pro_admin.asp</a>
+            <li>
+              Create a LivePerson account: <a href="http://www.liveperson.com/de/liveengage/pricing">http://www.liveperson.com/de/liveengage/pricing</a>
             </li>
-            <li><b>Apply Knowledge</b>. Login in your Admin Console, configure your account and
-                embed your pages: <a href="https://server.iad.liveperson.net/hc/web/public/pub/ma/lp/login.jsp"
-                    target='_blank'>https://server.iad.liveperson.net/hc/web/public/pub/ma/lp/login.jsp</a>
-                <ul>
-                    <li>Click on the 'Admin Console' button on the toolbar. </li>
-                    <li>Click on 'Account Setup' and then 'Page Code Builder'. </li>
-                    <li>Follow the wizard to generate the monitor code and button tag code you wish to use on your store. </li>
-                    <li>Paste the provided values from the 'Button Tag' and 'Monitor Tag' text boxes in to the appropriate boxes below. </li>
-                </ul>
+            <li>
+              Sign in: <a href="https://authentication.liveperson.net/">https://authentication.liveperson.net/</a>
             </li>
-            <li><b>Learn how to use the Operator Console (Agent)</b>. Getting started for Pro Operators:
-                <a href="http://solutions.liveperson.com/training/gettingstarted_pro_op.asp" target='_blank'>
-                    http://solutions.liveperson.com/training/gettingstarted_pro_op.asp</a> </li>
+            <li>
+              Select the menu item <em>LiveEngage Tag</em> in the MyAccount dropdown (top right)
+            </li>
+            <li>
+              Copy the Monitoring-Code in the bottom text field
+            </li>
+            <li>
+              Paste the code you just copied into the text field below
+            </li>
         </ul>
       ]]>
     </Value>
   </LocaleResource>
   <LocaleResource Name="LiveChat">
     <Value>Live chat</Value>
-  </LocaleResource>
-  <LocaleResource Name="ButtonCode">
-    <Value>Button code(max 2000)</Value>
-  </LocaleResource>
-  <LocaleResource Name="ButtonCode.Hint">
-    <Value>Enter your button code here.</Value>
   </LocaleResource>
   <LocaleResource Name="MonitoringCode">
     <Value>Monitoring code(max 2000)</Value>

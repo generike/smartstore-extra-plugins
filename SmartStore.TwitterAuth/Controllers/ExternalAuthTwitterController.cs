@@ -137,7 +137,7 @@ namespace SmartStore.TwitterAuth.Controllers
 				return result.Result;
 
             return HttpContext.Request.IsAuthenticated ?
-				new RedirectResult(!string.IsNullOrEmpty(returnUrl) ? returnUrl : "~/") :
+				RedirectToReferrer(returnUrl, "~/") :
 				new RedirectResult(Url.LogOn(returnUrl));
         }
     }

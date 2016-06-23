@@ -9,6 +9,7 @@ using System.Globalization;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Web.Mvc;
 using System.Web.Routing;
 using System.Xml;
 using SmartStore.Core.Domain.Directory;
@@ -595,7 +596,7 @@ namespace SmartStore.USPS
                 foreach (var shippingOption in shippingOptions)
                 {
                     if (!shippingOption.Name.ToLower().StartsWith("usps"))
-                        shippingOption.Name = string.Format("USPS {0}", shippingOption.Name);
+                        shippingOption.Name = string.Format("USPS {0}", new MvcHtmlString(shippingOption.Name));
                     shippingOption.Rate += _uspsSettings.AdditionalHandlingCharge;
                     response.ShippingOptions.Add(shippingOption);
                 }
