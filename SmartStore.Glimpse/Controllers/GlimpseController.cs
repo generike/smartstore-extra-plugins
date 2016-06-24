@@ -87,7 +87,6 @@ namespace SmartStore.Glimpse.Controllers
             var storeScope = this.GetActiveStoreScopeConfiguration(_storeService, _workContext);
 
             storeDependingSettingHelper.UpdateSettings(model /*settings*/, form, storeScope, _settingService);
-            _settingService.ClearCache();
 
             return Configure();
         }
