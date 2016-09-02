@@ -1,7 +1,7 @@
 ﻿FriendlyName: "Customer had previously purchased one or all of these products" discount requirement rules
 SystemName: SmartStore.DiscountRules.PurchasedProducts
 Group: Marketing
-Version: 2.6.0
+Version: 2.6.0.1
 MinAppVersion: 2.5.0
 DisplayOrder: 1
 FileName: SmartStore.DiscountRules.PurchasedProducts.dll
