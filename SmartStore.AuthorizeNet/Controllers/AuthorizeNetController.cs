@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using SmartStore.AuthorizeNet.Models;
 using SmartStore.AuthorizeNet.Validators;
-using SmartStore.Services.Configuration;
-using SmartStore.Services.Localization;
 using SmartStore.Services.Payments;
 using SmartStore.Web.Framework;
 using SmartStore.Web.Framework.Controllers;
@@ -13,17 +12,17 @@ using SmartStore.Web.Framework.Security;
 
 namespace SmartStore.AuthorizeNet.Controllers
 {
-    public class AuthorizeNetController : PaymentControllerBase
+	public class AuthorizeNetController : PaymentControllerBase
     {
-        private readonly ISettingService _settingService;
-        private readonly ILocalizationService _localizationService;
         private readonly AuthorizeNetSettings _authorizeNetPaymentSettings;
+		private readonly HttpContextBase _httpContext;
 
-        public AuthorizeNetController(ISettingService settingService, ILocalizationService localizationService, AuthorizeNetSettings authorizeNetPaymentSettings)
+		public AuthorizeNetController(
+			AuthorizeNetSettings authorizeNetPaymentSettings,
+			HttpContextBase httpContext)
         {
-            this._settingService = settingService;
-            this._localizationService = localizationService;
-            this._authorizeNetPaymentSettings = authorizeNetPaymentSettings;
+            _authorizeNetPaymentSettings = authorizeNetPaymentSettings;
+			_httpContext = httpContext;
         }
         
         [AdminAuthorize]
@@ -55,7 +54,8 @@ namespace SmartStore.AuthorizeNet.Controllers
             _authorizeNetPaymentSettings.TransactionKey = model.TransactionKey;
             _authorizeNetPaymentSettings.LoginId = model.LoginId;
             _authorizeNetPaymentSettings.AdditionalFee = model.AdditionalFee;
-            _settingService.SaveSetting(_authorizeNetPaymentSettings);
+
+			Services.Settings.SaveSetting(_authorizeNetPaymentSettings);
             
             model.TransactModeValues = _authorizeNetPaymentSettings.TransactMode.ToSelectList();
 
@@ -67,32 +67,16 @@ namespace SmartStore.AuthorizeNet.Controllers
             var model = new PaymentInfoModel();
             
             //CC types
-            model.CreditCardTypes.Add(new SelectListItem()
-                {
-                    Text = "Visa",
-                    Value = "Visa",
-                });
-            model.CreditCardTypes.Add(new SelectListItem()
-            {
-                Text = "Master card",
-                Value = "MasterCard",
-            });
-            model.CreditCardTypes.Add(new SelectListItem()
-            {
-                Text = "Discover",
-                Value = "Discover",
-            });
-            model.CreditCardTypes.Add(new SelectListItem()
-            {
-                Text = "Amex",
-                Value = "Amex",
-            });
+            model.CreditCardTypes.Add(new SelectListItem { Text = "Visa", Value = "Visa" });
+            model.CreditCardTypes.Add(new SelectListItem { Text = "Master card", Value = "MasterCard" });
+            model.CreditCardTypes.Add(new SelectListItem { Text = "Discover", Value = "Discover" });
+            model.CreditCardTypes.Add(new SelectListItem { Text = "Amex", Value = "Amex" });
             
             //years
             for (int i = 0; i < 15; i++)
             {
                 string year = Convert.ToString(DateTime.Now.Year + i);
-                model.ExpireYears.Add(new SelectListItem()
+                model.ExpireYears.Add(new SelectListItem
                 {
                     Text = year,
                     Value = year,
@@ -103,25 +87,31 @@ namespace SmartStore.AuthorizeNet.Controllers
             for (int i = 1; i <= 12; i++)
             {
                 string text = (i < 10) ? "0" + i.ToString() : i.ToString();
-                model.ExpireMonths.Add(new SelectListItem()
+                model.ExpireMonths.Add(new SelectListItem
                 {
                     Text = text,
                     Value = i.ToString(),
                 });
             }
 
-            //set postback values
-			var form = this.GetPaymentData();
-            model.CardholderName = form["CardholderName"];
-            model.CardNumber = form["CardNumber"];
-            model.CardCode = form["CardCode"];
-            var selectedCcType = model.CreditCardTypes.Where(x => x.Value.Equals(form["CreditCardType"], StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+			//set postback values
+			var paymentData = _httpContext.GetCheckoutState().PaymentData;
+			model.CardholderName = (string)paymentData.Get("CardholderName");
+            model.CardNumber = (string)paymentData.Get("CardNumber");
+            model.CardCode = (string)paymentData.Get("CardCode");
+
+			var creditCardType = (string)paymentData.Get("CreditCardType");
+			var selectedCcType = model.CreditCardTypes.Where(x => x.Value.Equals(creditCardType, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
             if (selectedCcType != null)
                 selectedCcType.Selected = true;
-            var selectedMonth = model.ExpireMonths.Where(x => x.Value.Equals(form["ExpireMonth"], StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+
+			var expireMonth = (string)paymentData.Get("ExpireMonth");
+			var selectedMonth = model.ExpireMonths.Where(x => x.Value.Equals(expireMonth, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
             if (selectedMonth != null)
                 selectedMonth.Selected = true;
-            var selectedYear = model.ExpireYears.Where(x => x.Value.Equals(form["ExpireYear"], StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+
+			var expireYear = (string)paymentData.Get("ExpireYear");
+			var selectedYear = model.ExpireYears.Where(x => x.Value.Equals(expireYear, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
             if (selectedYear != null)
                 selectedYear.Selected = true;
 
@@ -134,8 +124,8 @@ namespace SmartStore.AuthorizeNet.Controllers
             var warnings = new List<string>();
 
             //validate
-            var validator = new PaymentInfoValidator(_localizationService);
-            var model = new PaymentInfoModel()
+            var validator = new PaymentInfoValidator(Services.Localization);
+            var model = new PaymentInfoModel
             {
                 CardholderName = form["CardholderName"],
                 CardNumber = form["CardNumber"],
@@ -143,10 +133,16 @@ namespace SmartStore.AuthorizeNet.Controllers
                 ExpireMonth = form["ExpireMonth"],
                 ExpireYear = form["ExpireYear"]
             };
+
             var validationResult = validator.Validate(model);
-            if (!validationResult.IsValid)
-                foreach (var error in validationResult.Errors)
-                    warnings.Add(error.ErrorMessage);
+			if (!validationResult.IsValid)
+			{
+				foreach (var error in validationResult.Errors)
+				{
+					warnings.Add(error.ErrorMessage);
+				}
+			}
+
             return warnings;
         }
 
