@@ -1,36 +1,42 @@
-﻿@{
-    Layout = "";
-}
-@model SmartStore.Fedex.Models.FedexShippingModel
-@using SmartStore.Web.Framework;
+﻿@using SmartStore.Web.Framework;
 @using SmartStore.Fedex;
+@model SmartStore.Fedex.Models.FedexShippingModel
+@{
+	Layout = "";
+}
+
+<div class="plugin-actions">
+	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-primary" value="save">
+		<i class="fa fa-check"></i>&nbsp;@T("Admin.Common.Save")
+	</button>
+</div>
+
 @using (Html.BeginForm())
-{
-    
-<script type="text/javascript">
-    $(document).ready(function () {
+{    
+	<script type="text/javascript">
+		$(document).ready(function () {
 
-        $("#PackingType").change(togglePackingType);
-        
-        togglePackingType();
-    });
+			$("#PackingType").change(togglePackingType);
+			togglePackingType();
+		});
 
-    function togglePackingType() {
-        var selectedPackingTypeId = $("#PackingType").val();
-        if (selectedPackingTypeId == @(((int)PackingType.PackByDimensions).ToString())) {
-            $('#pnlPassDimensions').show();
-            $('#pnlPackingPackageVolume').hide();
-        }
-        else if (selectedPackingTypeId == @(((int)PackingType.PackByOneItemPerPackage).ToString())) {
-            $('#pnlPassDimensions').hide();
-            $('#pnlPackingPackageVolume').hide();
-        }
-        else if (selectedPackingTypeId == @(((int)PackingType.PackByVolume).ToString())) {
-            $('#pnlPassDimensions').hide();
-            $('#pnlPackingPackageVolume').show();
-        }
-    }
-</script>
+		function togglePackingType() {
+			var selectedPackingTypeId = $("#PackingType").val();
+			if (selectedPackingTypeId == @(((int)PackingType.PackByDimensions).ToString())) {
+				$('#pnlPassDimensions').show();
+				$('#pnlPackingPackageVolume').hide();
+			}
+			else if (selectedPackingTypeId == @(((int)PackingType.PackByOneItemPerPackage).ToString())) {
+				$('#pnlPassDimensions').hide();
+				$('#pnlPackingPackageVolume').hide();
+			}
+			else if (selectedPackingTypeId == @(((int)PackingType.PackByVolume).ToString())) {
+				$('#pnlPassDimensions').hide();
+				$('#pnlPackingPackageVolume').show();
+			}
+		}
+	</script>
+
     <table class="adminContent">
         <tr>
             <td class="adminTitle">
@@ -197,16 +203,6 @@
             <td class="adminData">
                 @Html.EditorFor(model => model.PackingPackageVolume)
                 @Html.ValidationMessageFor(model => model.PackingPackageVolume)
-            </td>
-        </tr>
-        <tr>
-			<td class="adminTitle">
-				&nbsp;
-			</td>
-			<td class="adminData">
-                <button type="submit" name="save" value="save" class="btn btn-primary">
-					<i class="fa fa-check"></i>&nbsp;@T("Admin.Common.Save")
-                </button>
             </td>
         </tr>
     </table>    

@@ -1,8 +1,15 @@
-﻿@{
-    Layout = "";
-}
+﻿@using SmartStore.Web.Framework;
 @model SmartStore.AustraliaPost.Models.AustraliaPostModel
-@using SmartStore.Web.Framework;
+@{
+	Layout = "";
+}
+
+<div class="plugin-actions">
+	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-primary" value="save">
+		<i class="fa fa-check"></i>&nbsp;@T("Admin.Common.Save")
+	</button>
+</div>
+
 @using (Html.BeginForm())
 {
     <table class="adminContent">
@@ -31,16 +38,6 @@
             <td class="adminData">
                 @Html.EditorFor(model => model.ShippedFromZipPostalCode)
                 @Html.ValidationMessageFor(model => model.ShippedFromZipPostalCode)
-            </td>
-        </tr>
-        <tr>
-			<td class="adminTitle">
-				&nbsp;
-			</td>
-			<td class="adminData">
-                <button type="submit" name="save" value="save" class="btn btn-primary">
-                     <i class="fa fa-check"></i>&nbsp;@T("Admin.Common.Save")
-				</button>
             </td>
         </tr>
     </table>    

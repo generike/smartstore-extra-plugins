@@ -1,8 +1,15 @@
-﻿@{
+﻿@using SmartStore.Web.Framework;
+@model SmartStore.UPS.Models.UPSModel
+@{
     Layout = "";
 }
-@model SmartStore.UPS.Models.UPSModel
-@using SmartStore.Web.Framework;
+
+<div class="plugin-actions">
+	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-primary" value="save">
+		<i class="fa fa-check"></i>&nbsp;@T("Admin.Common.Save")
+	</button>
+</div>
+
 @using (Html.BeginForm())
 {
     <table class="adminContent">
@@ -119,16 +126,6 @@
                         </label>
                     }
                 </div>
-            </td>
-        </tr>
-        <tr>
-			<td class="adminTitle">
-				&nbsp;
-			</td>
-			<td class="adminData">
-                <button type="submit" name="save" value="save" class="btn btn-primary">
-                    <i class="fa fa-check"></i>&nbsp;@T("Admin.Common.Save")
-                </button>
             </td>
         </tr>
     </table>    

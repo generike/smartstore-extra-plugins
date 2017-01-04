@@ -5,6 +5,12 @@
 	Layout = "";
 }
 
+<div class="plugin-actions">
+	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-primary" value="save">
+		<i class="fa fa-check"></i>&nbsp;@T("Admin.Common.Save")
+	</button>
+</div>
+
 @using (Html.BeginForm())
 {
     <table class="adminContent">
@@ -57,16 +63,6 @@
             <td class="adminData">
                 @Html.EditorFor(model => model.AdditionalFee)
                 @Html.ValidationMessageFor(model => model.AdditionalFee)
-            </td>
-        </tr>
-        <tr>
-			<td class="adminTitle">
-				&nbsp;
-			</td>
-			<td class="adminData">
-                <button type="submit" name="save" class="btn btn-primary">
-					<i class="fa fa-check"></i>&nbsp;@T("Admin.Common.Save")
-				</button>
             </td>
         </tr>
     </table>    
