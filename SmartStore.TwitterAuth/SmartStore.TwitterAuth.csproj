@@ -210,9 +210,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\twitterstyles.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Description.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
