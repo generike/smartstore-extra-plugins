@@ -1,8 +1,8 @@
 ﻿FriendlyName: Twitter
 SystemName: SmartStore.TwitterAuth
 Group: Security
-Version: 2.6.0
-MinAppVersion: 2.5.0
+Version: 3.0.0
+MinAppVersion: 3.0.0
 DisplayOrder: 10
 FileName: SmartStore.TwitterAuth.dll
 ResourceRootKey: Plugins.ExternalAuth.Twitter
