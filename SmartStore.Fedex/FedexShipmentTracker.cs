@@ -154,15 +154,11 @@ namespace SmartStore.Fedex
             }
             catch (SoapException ex)
             {
-                var sb = new StringBuilder();
-                sb.AppendFormat("SoapException Message= {0}.", ex.Message);
-                sb.AppendFormat("SoapException Category:Code:Message= {0}.", ex.Detail.LastChild.InnerText);
-                //sb.AppendFormat("SoapException XML String for all= {0}.", ex.Detail.LastChild.OuterXml);
-                _logger.Error(string.Format("Error while getting Fedex shipment tracking info - {0}", trackingNumber), new Exception(sb.ToString()));
+                _logger.ErrorFormat(ex, "Error while getting Fedex shipment tracking info - {0}", trackingNumber);
             }
             catch (Exception exc)
             {
-                _logger.Error(string.Format("Error while getting Fedex shipment tracking info - {0}", trackingNumber), exc);
+                _logger.ErrorFormat(exc, "Error while getting Fedex shipment tracking info - {0}", trackingNumber);
             }
             return result;
         }

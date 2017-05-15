@@ -88,15 +88,11 @@ namespace SmartStore.UPS
             }
             catch (SoapException ex)
             {
-                var sb = new StringBuilder();
-                sb.AppendFormat("SoapException Message= {0}.", ex.Message);
-                sb.AppendFormat("SoapException Category:Code:Message= {0}.", ex.Detail.LastChild.InnerText);
-                //sb.AppendFormat("SoapException XML String for all= {0}.", ex.Detail.LastChild.OuterXml);
-                _logger.Error(string.Format("Error while getting UPS shipment tracking info - {0}", trackingNumber), new Exception(sb.ToString()));
+                _logger.ErrorFormat(ex, "Error while getting UPS shipment tracking info - {0}", trackingNumber);
             }
-            catch (Exception exc)
+            catch (Exception ex)
             {
-                _logger.Error(string.Format("Error while getting UPS shipment tracking info - {0}", trackingNumber), exc);
+                _logger.ErrorFormat(ex, "Error while getting UPS shipment tracking info - {0}", trackingNumber);
             }
             return result;
         }

@@ -4,6 +4,12 @@
     Layout = "";
 }
 
+<div class="plugin-actions">
+	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-primary" value="save">
+		<i class="fa fa-check"></i>&nbsp;@T("Admin.Common.Save")
+	</button>
+</div>
+
 <div class="alert alert-info">
     <button class="close" data-dismiss="alert">&#215;</button>
     @Html.Raw(@T("Plugins.Developer.Glimpse.AdminInstruction", Url.Content("~/Glimpse")))
@@ -185,18 +191,6 @@
             <td class="adminData">
                 @Html.SettingEditorFor(model => model.ShowSqlTab)
                 @Html.ValidationMessageFor(model => model.ShowSqlTab)
-            </td>
-        </tr>
-
-        <tr>
-			<td class="adminTitle">
-				&nbsp;
-			</td>
-			<td class="adminData">
-                <button type="submit" name="save" value="save" class="btn btn-primary">
-				    <i class="fa fa-check"></i>
-                    @T("Admin.Common.Save")
-                </button>
             </td>
         </tr>
     </table>

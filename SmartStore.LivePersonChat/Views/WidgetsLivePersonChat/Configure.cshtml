@@ -1,35 +1,30 @@
-﻿@{
+﻿@using SmartStore.Web.Framework;
+@model SmartStore.LivePersonChat.Models.ConfigurationModel
+@{
     Layout = "";
 }
-@model SmartStore.LivePersonChat.Models.ConfigurationModel
-@using SmartStore.Web.Framework;
+
+<div class="plugin-actions">
+	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-primary" value="save">
+		<i class="fa fa-check"></i>&nbsp;@T("Admin.Common.Save")
+	</button>
+</div>
 	
 @using (Html.BeginForm())
-{
-    
+{    
     <div class="alert alert-info">
         @Html.Raw(@T("Plugins.Widgets.LivePersonChat.AdminInstruction"))
     </div>
     
-<table class="adminContent">
-    <tr>
-        <td class="adminTitle">
-            @Html.SmartLabelFor(model => model.MonitoringCode)
-        </td>
-        <td class="adminData">
-            @Html.TextAreaFor(model => model.MonitoringCode, 10, 10, new { style = "width: 600px" })
-            @Html.ValidationMessageFor(model => model.MonitoringCode)
-        </td>
-    </tr>
-    <tr>
-		<td class="adminTitle">
-			&nbsp;
-		</td>
-		<td class="adminData">
-            <button type="submit" name="save" value="save" class="btn btn-primary">
-                <i class="fa fa-check"></i>&nbsp;@T("Admin.Common.Save")
-            </button>
-        </td>
-    </tr>
-</table>
+	<table class="adminContent">
+		<tr>
+			<td class="adminTitle">
+				@Html.SmartLabelFor(model => model.MonitoringCode)
+			</td>
+			<td class="adminData">
+				@Html.TextAreaFor(model => model.MonitoringCode, 10, 10, new { style = "width: 600px" })
+				@Html.ValidationMessageFor(model => model.MonitoringCode)
+			</td>
+		</tr>
+	</table>
 }

@@ -11,7 +11,7 @@
   <LocaleResource Name="Plugins.DiscountRules.PurchasedOneProduct" AppendRootKey="false">
     <Children>
       <LocaleResource Name="Fields.Products">
-        <Value>Produke</Value>
+        <Value>Produkte</Value>
       </LocaleResource>
       <LocaleResource Name="Fields.Products.Hint">
         <Value>Kommagetrennte Liste von Produkt-IDs (z.B. 77, 123, 156). Die ID eines Produktes findet sich in seiner Detailansicht.</Value>

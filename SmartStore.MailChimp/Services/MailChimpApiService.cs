@@ -48,7 +48,7 @@ namespace SmartStore.MailChimp.Services
             }
             catch (Exception e)
             {
-                _log.Debug(e.Message, e);
+                _log.Debug(e, e.Message);
             }
             return output;
         }

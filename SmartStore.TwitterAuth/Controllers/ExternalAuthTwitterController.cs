@@ -77,7 +77,6 @@ namespace SmartStore.TwitterAuth.Controllers
             settings.ConsumerSecret = model.ConsumerSecret;
 
 			storeDependingSettingHelper.UpdateSettings(settings, form, storeScope, _services.Settings);
-			_services.Settings.ClearCache();
 
 			NotifySuccess(_services.Localization.GetResource("Admin.Common.DataSuccessfullySaved"));
 
