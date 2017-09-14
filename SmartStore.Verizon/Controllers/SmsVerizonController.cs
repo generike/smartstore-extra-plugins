@@ -39,7 +39,6 @@ namespace SmartStore.Plugin.Sms.Verizon.Controllers
         }
 
         [HttpPost, ActionName("Configure")]
-        [FormValueRequired("save")]
         public ActionResult ConfigurePOST(SmsVerizonModel model)
         {
             if (!ModelState.IsValid)

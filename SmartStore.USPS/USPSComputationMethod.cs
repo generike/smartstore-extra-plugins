@@ -22,6 +22,7 @@ using SmartStore.Services.Configuration;
 using SmartStore.Services.Directory;
 using SmartStore.Services.Shipping;
 using SmartStore.Services.Shipping.Tracking;
+using SmartStore.Services.Tax;
 using SmartStore.USPS.Domain;
 
 namespace SmartStore.USPS
@@ -48,6 +49,7 @@ namespace SmartStore.USPS
         private readonly MeasureSettings _measureSettings;
         private readonly IPriceCalculationService _priceCalculationService;
         private readonly ICommonServices _services;
+		private readonly ITaxService _taxService;
 
         #endregion
 
@@ -56,7 +58,8 @@ namespace SmartStore.USPS
         public USPSComputationMethod(IMeasureService measureService,
             IShippingService shippingService, ISettingService settingService,
             USPSSettings uspsSettings, MeasureSettings measureSettings,
-            IPriceCalculationService priceCalculationService, ICommonServices services)
+            IPriceCalculationService priceCalculationService, ICommonServices services,
+			ITaxService taxService)
         {
             this._measureService = measureService;
             this._shippingService = shippingService;
@@ -65,6 +68,7 @@ namespace SmartStore.USPS
             this._measureSettings = measureSettings;
             this._priceCalculationService = priceCalculationService;
             this._services = services;
+			_taxService = taxService;
 
 			T = NullLocalizer.Instance;
 		}
@@ -141,16 +145,23 @@ namespace SmartStore.USPS
             int pounds = Convert.ToInt32(weight / 16);
             int ounces = Convert.ToInt32(weight - (pounds * 16.0M));
             int girth = height + height + width + width;
-            //Get shopping cart sub-total.  V2 International rates require the package value to be declared.
-            decimal subTotal = decimal.Zero;
-            foreach (var shoppingCartItem in getShippingOptionRequest.Items)
-            {
-                if (!shoppingCartItem.Item.IsShipEnabled)
-                    continue;
-                subTotal += _priceCalculationService.GetSubTotal(shoppingCartItem, true);
-            }
+			var taxRate = decimal.Zero;
+			//Get shopping cart sub-total.  V2 International rates require the package value to be declared.
+			decimal subTotal = decimal.Zero;
 
-            string requestString = string.Empty;
+			foreach (var shoppingCartItem in getShippingOptionRequest.Items)
+            {
+				if (shoppingCartItem.Item.IsFreeShipping || !shoppingCartItem.Item.IsShipEnabled)
+				{
+					continue;
+				}
+
+				var itemSubTotal = _priceCalculationService.GetSubTotal(shoppingCartItem, true);
+				var itemSubTotalInclTax = _taxService.GetProductPrice(shoppingCartItem.Item.Product, itemSubTotal, true, getShippingOptionRequest.Customer, out taxRate);
+				subTotal += itemSubTotalInclTax;
+			}
+
+			string requestString = string.Empty;
 
             bool isDomestic = IsDomesticRequest(getShippingOptionRequest);
             if (isDomestic)
