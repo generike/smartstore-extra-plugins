@@ -146,6 +146,9 @@ namespace SmartStore.AuthorizeNet
             form.Add("x_customer_ip", _services.WebHelper.GetCurrentIpAddress());
 
             string reply = null;
+
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
             Byte[] responseData = webClient.UploadValues(GetAuthorizeNETUrl(), form);
             reply = Encoding.ASCII.GetString(responseData);
 
@@ -235,6 +238,9 @@ namespace SmartStore.AuthorizeNet
             form.Add("x_trans_id", codes[0]);
 
             string reply = null;
+
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
             Byte[] responseData = webClient.UploadValues(GetAuthorizeNETUrl(), form);
             reply = Encoding.ASCII.GetString(responseData);
 

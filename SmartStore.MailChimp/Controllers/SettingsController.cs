@@ -87,7 +87,6 @@ namespace SmartStore.MailChimp.Controllers
         }
 
         [HttpPost]
-        [FormValueRequired("save")]
         public ActionResult Index(MailChimpSettingsModel model)
         {
             string saveResult = "";

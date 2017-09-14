@@ -1,6 +1,6 @@
 ﻿FriendlyName: Live person chat
 Group: Social
-Version: 3.0.2
+Version: 3.0.3
 MinAppVersion: 3.0.0
 DisplayOrder: 1
 SystemName: SmartStore.LivePersonChat
