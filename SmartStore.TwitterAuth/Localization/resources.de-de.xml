@@ -3,7 +3,27 @@
     <Value>Twitter</Value>
   </LocaleResource>
   <LocaleResource Name="AdminInstruction">
-    <Value>Die Twitter-Authentifizierung funktioniert nicht, wenn die Option "Automatisch anmelden" aktiviert ist.</Value>
+    <Value>
+      <![CDATA[
+        <p>
+          Um dieses Plugin zu konfigurieren, so dass sich Ihre Kunden mit ihren Twitter-Benutzerkonten einloggen können, sind folgende Schritte notwendig.
+        </p>
+        
+        <ul>
+          <li>
+            Zunächst muss eine App für Ihr Twitterkonto erstellt werden. <a href="https://apps.twitter.com/app/new" target="_blank">https://apps.twitter.com/app/new</a>
+          </li>
+          <li>
+            Neben den Pflichtfeldern (Name, Description & Website) ist es wichtig auch eine Callback-URL anzugeben. 
+            Hier genügt es, einfach noch einmal die URL Ihres Shops anzugeben.
+          </li>
+          <li> 
+            Wenn die App erstellt wurde, können sie dem Reiter <i>Keys and Access Tokens</i> den benötigten <i>Consumer Key</i> und den <i>Secret</i> entnehmen
+            und diese in die entsprechenden Felder weiter unten auf dieser Seite einfügen.
+          </li> 
+        </ul>
+      ]]>
+    </Value>
   </LocaleResource>
   <LocaleResource Name="Login">
     <Value>Mit Twitter anmelden</Value>
@@ -19,5 +39,9 @@
   </LocaleResource>
   <LocaleResource Name="ConsumerSecret.Hint">
     <Value>Geben Sie hier Ihren Consumer-Secret an.</Value>
+  </LocaleResource>
+
+  <LocaleResource Name="Error.NoCallBackUrl">
+    <Value>Für die verwendete Twitter-App wurde keine Callback URL eingerichtet.</Value>
   </LocaleResource>
 </Language>

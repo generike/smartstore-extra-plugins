@@ -3,7 +3,26 @@
     <Value>Twitter</Value>
   </LocaleResource>
 	<LocaleResource Name="AdminInstruction">
-		<Value>Twitter authentication doesn't work with 'Auto register' option enabled.</Value>
+		<Value>
+      <![CDATA[
+        <p>
+          To configure this plugin so your customers can log in with their Twitter accounts the following steps need to be taken.
+        </p>
+        <ul>
+          <li>
+            First you need to create an App for your Twitter account. <a href="https://apps.twitter.com/app/new" target="_blank">https://apps.twitter.com/app/new</a>
+          </li>
+          <li>
+            Next to the obligatory fields (Name, Description & Website) it's very important to enter also a callback URL. 
+            It's sufficient to enter your store URL anew.
+          </li>
+          <li> 
+            Once the app was created you can copy the <i>consumer key</i> and the <i>secret</i> from the tab <i>Keys and Access Tokens</i>
+            and paste them into the corresponding fields further below on this page.
+          </li> 
+        </ul>
+      ]]>
+    </Value>
 	</LocaleResource>
   <LocaleResource Name="Login">
     <Value>Sign in with Twitter</Value>
@@ -19,5 +38,8 @@
   </LocaleResource>
   <LocaleResource Name="ConsumerSecret.Hint">
     <Value>Enter your consumer secret here.</Value>
+  </LocaleResource>
+  <LocaleResource Name="Error.NoCallBackUrl">
+    <Value>For the currently active Twitter app no callback URL was defined.</Value>
   </LocaleResource>
 </Language>

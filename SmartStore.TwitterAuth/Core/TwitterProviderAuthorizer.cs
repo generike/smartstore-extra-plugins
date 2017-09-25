@@ -57,10 +57,6 @@ namespace SmartStore.TwitterAuth.Core
 
 		public AuthorizeState Authorize(string returnUrl, bool? verifyResponse = null)
         {
-            //Sleep for 15 seconds as a workaround for a twitter bug. :(
-            //resolve this issue because it's blocking the entire site
-            //Thread.Sleep(new TimeSpan(0, 0, 0, 15));
-
             MvcAuthorizer.CompleteAuthorization(GenerateCallbackUri());
 
             if (!MvcAuthorizer.IsAuthorized)
@@ -96,6 +92,7 @@ namespace SmartStore.TwitterAuth.Core
 
             return builder.Uri;
         }
+
         public ITwitterAuthorizer GetAuthorizer(Customer customer)
         {
             var parameters = new OAuthAuthenticationParameters(Provider.SystemName);
@@ -112,6 +109,7 @@ namespace SmartStore.TwitterAuth.Core
 
                 return MvcAuthorizer;
             }
+
             return null;
         }
     }

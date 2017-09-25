@@ -9,6 +9,7 @@ using SmartStore.Web.Framework;
 using SmartStore.Web.Framework.Controllers;
 using SmartStore.Web.Framework.Security;
 using SmartStore.Web.Framework.Settings;
+using SmartStore.Core.Logging;
 
 namespace SmartStore.TwitterAuth.Controllers
 {
@@ -89,6 +90,13 @@ namespace SmartStore.TwitterAuth.Controllers
             return View();
         }
 
+        public ActionResult LoginWithError()
+        {
+            _services.Notifier.Error(_services.Localization.GetResource("Plugins.ExternalAuth.Twitter.Error.NoCallBackUrl"));
+            
+            return new RedirectResult(Url.LogOn(""));
+        }
+
         public ActionResult Login(string returnUrl)
         {
 			var processor = _openAuthenticationService.LoadExternalAuthenticationMethodBySystemName(Provider.SystemName, _services.StoreContext.CurrentStore.Id);
@@ -131,13 +139,11 @@ namespace SmartStore.TwitterAuth.Controllers
                 default:
                     break;
             }
-
+            
             if (result.Result != null)
-				return result.Result;
-
-            return HttpContext.Request.IsAuthenticated ?
-				RedirectToReferrer(returnUrl, "~/") :
-				new RedirectResult(Url.LogOn(returnUrl));
+                return result.Result;
+                
+            return HttpContext.Request.IsAuthenticated ? RedirectToReferrer(returnUrl, "~/") : new RedirectResult(Url.LogOn(returnUrl));
         }
     }
 }

@@ -1,34 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using LinqToTwitter;
+using SmartStore.Core.Infrastructure;
+using SmartStore.Core.Logging;
+using SmartStore.Services;
+using System;
 using System.Web;
 using System.Web.Mvc;
-using LinqToTwitter;
+using System.Web.Routing;
 
 namespace SmartStore.TwitterAuth.Core
 {
-	public class MvcOAuthActionResult : ActionResult
+    public class MvcOAuthActionResult : ActionResult
 	{
-		private readonly WebAuthorizer webAuth;
+		private readonly WebAuthorizer _webAuth;
+        private readonly ICommonServices _services;
 
-		public MvcOAuthActionResult(WebAuthorizer webAuth)
+        public MvcOAuthActionResult(WebAuthorizer webAuth)
 		{
-			this.webAuth = webAuth;
-		}
+			_webAuth = webAuth;
+            _services = EngineContext.Current.Resolve<ICommonServices>();
 
-		public override void ExecuteResult(ControllerContext context)
+            var factory = EngineContext.Current.Resolve<ILoggerFactory>(); 
+            Logger = factory.GetLogger(typeof(Log4netLogger));
+        }
+
+        public ILogger Logger { get; set; }
+
+        public override void ExecuteResult(ControllerContext context)
 		{
-			webAuth.PerformRedirect = authUrl =>
+            _webAuth.PerformRedirect = authUrl =>
 			{
 				HttpContext.Current.Response.Redirect(authUrl);
 			};
 
-			Uri callback =
-				webAuth.Callback == null ?
-					HttpContext.Current.Request.Url :
-					webAuth.Callback;
+			Uri callback = _webAuth.Callback == null ? HttpContext.Current.Request.Url : _webAuth.Callback;
 
-			webAuth.BeginAuthorization(callback);
-		}
+            try
+            {
+                _webAuth.BeginAuthorization(callback);
+            } 
+            catch(Exception ex)
+            {
+                Logger.Error(ex, _services.Localization.GetResource("Plugins.ExternalAuth.Twitter.Error.NoCallBackUrl"));
+                
+                var urlHelper = new UrlHelper(context.RequestContext);
+                var url = urlHelper.Action("LoginWithError", "ExternalAuthTwitter", new { area = "SmartStore.TwitterAuth" });
+
+                HttpContext.Current.Response.Redirect(url);
+            }
+        }
 	}
 }
