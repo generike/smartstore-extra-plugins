@@ -153,7 +153,7 @@
       <Link>Properties\AssemblyVersionInfo.cs</Link>
     </Compile>
     <Compile Include="AdminMenu.cs" />
-    <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\MailChimpController.cs" />
     <Compile Include="Controllers\WebHooksController.cs" />
     <Compile Include="Data\MailChimpEventQueueRecord.cs" />
     <Compile Include="Data\MailChimpEventQueueRecordMap.cs" />
@@ -226,7 +226,7 @@
     <EmbeddedResource Include="Data\Migrations\201403120014110_Initial.resx">
       <DependentUpon>201403120014110_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <Content Include="Views\Settings\Index.cshtml">
+    <Content Include="Views\MailChimp\Configure.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
