@@ -16,7 +16,7 @@ namespace SmartStore.MailChimp.Controllers
 {
 
 	[AdminAuthorize]
-    public class SettingsController : PluginControllerBase
+    public class MailChimpController : PluginControllerBase
     {
         private readonly IMailChimpApiService _mailChimpApiService;
         private readonly IScheduleTaskService _scheduleTaskService;
@@ -25,7 +25,7 @@ namespace SmartStore.MailChimp.Controllers
         private readonly MailChimpSettings _settings;
         private readonly ISubscriptionEventQueueingService _subscriptionEventQueueingService;
 
-        public SettingsController(ISettingService settingService, IScheduleTaskService scheduleTaskService, 
+        public MailChimpController(ISettingService settingService, IScheduleTaskService scheduleTaskService, 
             IMailChimpApiService mailChimpApiService, ISubscriptionEventQueueingService subscriptionEventQueueingService, 
             ILocalizationService localizationService, MailChimpSettings settings)
         {
@@ -79,15 +79,14 @@ namespace SmartStore.MailChimp.Controllers
             return _scheduleTaskService.GetTaskByType("SmartStore.MailChimp.MailChimpSynchronizationTask, SmartStore.MailChimp");
         }
 
-        public ActionResult Index()
+        public ActionResult Configure()
         {
             var model = PrepareModel();
-            //Return the view
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Index(MailChimpSettingsModel model)
+        public ActionResult Configure(MailChimpSettingsModel model)
         {
             string saveResult = "";
             if (ModelState.IsValid)
@@ -122,7 +121,7 @@ namespace SmartStore.MailChimp.Controllers
         {
             _subscriptionEventQueueingService.QueueAll();
 
-            return Index();
+            return Configure();
         }
 
         [HttpPost, ActionName("Index")]
@@ -166,7 +165,7 @@ namespace SmartStore.MailChimp.Controllers
                 model.SyncResult = exc.ToString();
             }
             
-            return View("Index", model);
+            return View("Configure", model);
         }
     }
 }
