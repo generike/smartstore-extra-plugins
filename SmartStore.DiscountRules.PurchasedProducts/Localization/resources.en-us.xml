@@ -1,6 +1,13 @@
 ﻿<Language Name="Deutsch" IsDefault="true" IsRightToLeft="false">
 
+  <LocaleResource Name="Plugins.FriendlyName.SmartStore.DiscountRules.PurchasedProducts" AppendRootKey="false">
+    <Value>"Customer has already purchased the following products" discount rule</Value>
+  </LocaleResource>
+
   <!-- PurchasedOneProduct -->
+  <LocaleResource Name="Plugins.FriendlyName.DiscountRequirement.PurchasedOneProduct" AppendRootKey="false">
+    <Value>The customer has already purchased one of the following products</Value>
+  </LocaleResource>
   <LocaleResource Name="Plugins.DiscountRules.PurchasedOneProduct" AppendRootKey="false">
     <Children>
       <LocaleResource Name="Fields.Products">
@@ -13,6 +20,9 @@
   </LocaleResource>
 
   <!-- PurchasedAllProducts -->
+  <LocaleResource Name="Plugins.FriendlyName.DiscountRequirement.PurchasedAllProducts" AppendRootKey="false">
+    <Value>Customer has already purchased the following products</Value>
+  </LocaleResource>
   <LocaleResource Name="Plugins.DiscountRules.PurchasedAllProducts" AppendRootKey="false">
     <Children>
       <LocaleResource Name="Fields.Products">

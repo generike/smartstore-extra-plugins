@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Routing;
 using SmartStore.Core.Domain.Messages;
+using SmartStore.Core.Email;
 using SmartStore.Core.Logging;
 using SmartStore.Core.Plugins;
 using SmartStore.Services;
@@ -48,10 +49,8 @@ namespace SmartStore.Verizon
                 var queuedEmail = new QueuedEmail
                 {
                     Priority = 5,
-                    From = emailAccount.Email,
-                    FromName = emailAccount.DisplayName,
+                    From = emailAccount.ToEmailAddress(),
                     To = _verizonSettings.Email,
-                    ToName = string.Empty,
 					Subject = _services.StoreContext.CurrentStore.Name,
                     Body = text,
                     CreatedOnUtc = DateTime.UtcNow,
