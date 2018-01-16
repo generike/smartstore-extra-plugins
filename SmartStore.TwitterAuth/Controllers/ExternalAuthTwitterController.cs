@@ -113,9 +113,13 @@ namespace SmartStore.TwitterAuth.Controllers
             {
                 case OpenAuthenticationStatus.Error:
                     {
-                        if (!result.Success)
-                            foreach (var error in result.Errors)
+						if (!result.Success)
+						{
+							foreach (var error in result.Errors)
+							{
 								NotifyError(error);
+							}
+						}
 
                         return new RedirectResult(Url.LogOn(returnUrl));
                     }
@@ -125,16 +129,15 @@ namespace SmartStore.TwitterAuth.Controllers
                     }
                 case OpenAuthenticationStatus.AutoRegisteredEmailValidation:
                     {
-                        //result
-                        return RedirectToRoute("RegisterResult", new { resultId = (int)UserRegistrationType.EmailValidation });
+                        return RedirectToRoute("RegisterResult", new { resultId = (int)UserRegistrationType.EmailValidation, returnUrl });
                     }
                 case OpenAuthenticationStatus.AutoRegisteredAdminApproval:
                     {
-                        return RedirectToRoute("RegisterResult", new { resultId = (int)UserRegistrationType.AdminApproval });
+                        return RedirectToRoute("RegisterResult", new { resultId = (int)UserRegistrationType.AdminApproval, returnUrl });
                     }
                 case OpenAuthenticationStatus.AutoRegisteredStandard:
                     {
-                        return RedirectToRoute("RegisterResult", new { resultId = (int)UserRegistrationType.Standard });
+                        return RedirectToRoute("RegisterResult", new { resultId = (int)UserRegistrationType.Standard, returnUrl });
                     }
                 default:
                     break;
