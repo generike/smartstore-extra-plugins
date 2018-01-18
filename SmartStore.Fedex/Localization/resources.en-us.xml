@@ -18,7 +18,7 @@
     <Value>Password</Value>
   </LocaleResource>
   <LocaleResource Name="Fields.Password.Hint">
-    <Value>Specify FedEx password.</Value>
+    <Value>Specify FedEx passwor.</Value>
   </LocaleResource>
   <LocaleResource Name="Fields.AccountNumber">
     <Value>Account number</Value>

@@ -8,35 +8,20 @@
 
 <div class="plugin-actions">
 	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-primary" value="save">
-		<i class="fa fa-check"></i>&nbsp;@T("Admin.Common.Save")
+		<i class="fa fa-check"></i>
+		<span>@T("Admin.Common.Save")</span>
 	</button>
 </div>
 
 <div>
     @using (Html.BeginForm())
     {
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $("#@Html.FieldIdFor(model => model.AutoSync)").click(toggleAutoSync);
-                toggleAutoSync();
-            });
-
-            function toggleAutoSync() {
-                if ($('#@Html.FieldIdFor(model => model.AutoSync)').is(':checked')) {
-                    $('#pnlAutoSyncEachMinutes').show();
-                }
-                else {
-                    $('#pnlAutoSyncEachMinutes').hide();
-                }
-            }
-        </script>
-
 		<div class="plugin-configuration">
 			<div>
 				@if (ViewData["DemoModeHint"] != null)
 				{
 					<div class="alert alert-warning">
-						<button class="close" data-dismiss="alert">×</button>
+						<button class="close" data-dismiss="alert">&#215;</button>
 						<div>@Html.Raw((string)ViewData["DemoModeHint"])</div>
 					</div>
 				}
@@ -85,7 +70,7 @@
                     @Html.LabelFor(m => m.AutoSync)
                 </td>
                 <td class="adminData">
-                    @Html.EditorFor(m => m.AutoSync)
+                    @Html.CheckBoxFor(m => m.AutoSync, new { data_toggler_for = "#pnlAutoSyncEachMinutes" })
                     @Html.ValidationMessageFor(m => m.AutoSync)
                 </td>
             </tr>
@@ -103,7 +88,7 @@
                 <tr>
                     <td colspan="2">
 						<div class="alert alert-info">
-							<button class="close" data-dismiss="alert">×</button>
+							<button class="close" data-dismiss="alert">&#215;</button>
 							@Model.SaveResult
 						</div>
                     </td>
@@ -133,7 +118,8 @@
 			<tr>
 				<td colspan="2">
 					<button type="submit" name="sync" value="sync" class="btn">
-						<i class="fa fa-user"></i>&nbsp;@T("Plugins.Misc.MailChimp.ManualSync")
+						<i class="fa fa-user"></i>
+						<span>@T("Plugins.Misc.MailChimp.ManualSync")</span>
 					</button>
 				</td>
 			</tr>
@@ -147,7 +133,8 @@
 			<tr>
 				<td colspan="2">
 					<button type="submit" name="queueall" value="queueall" class="btn">
-						<i class="fa fa-mail-reply-all"></i>&nbsp;@T("Plugins.Misc.MailChimp.QueueAll")
+						<i class="fa fa-mail-reply-all"></i>
+						<span>@T("Plugins.Misc.MailChimp.QueueAll")</span>
 					</button>
 				</td>
 			</tr>

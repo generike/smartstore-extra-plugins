@@ -11,5 +11,13 @@
       ]]>
     </Value>
   </LocaleResource>
-  
+	<LocaleResource Name="ConsoleTitle">
+		<Value>Konsole</Value>
+	</LocaleResource>
+	<LocaleResource Name="TabsTitle">
+		<Value>Tabs</Value>
+	</LocaleResource>
+	<LocaleResource Name="TabsSubtitle">
+		<Value>Nachdem Sie eine der folgenden Einstellungen geändert haben, müssen Sie die App neu starten, damit sie wirksam wird.</Value>
+	</LocaleResource>
 </Language>

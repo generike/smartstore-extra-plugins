@@ -6,7 +6,8 @@
 
 <div class="plugin-actions">
 	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-primary" value="save">
-		<i class="fa fa-check"></i>&nbsp;@T("Admin.Common.Save")
+		<i class="fa fa-check"></i>
+		<span>@T("Admin.Common.Save")</span>
 	</button>
 </div>
 
@@ -23,7 +24,7 @@
 		<tr>
 			<td colspan="2">
 				<div class="admin-config-group">
-					<div class="title">Console</div>
+					<div class="title">@T("Plugins.Developer.Glimpse.ConsoleTitle")</div>
 				</div>
 			</td>
 		</tr>
@@ -70,8 +71,8 @@
 			<td colspan="2">
 				<div class="admin-config-group">
 					<div class="title">
-						Tabs
-						<span class="sub-title">(after changing one of following settings you must restart the app in order for them to take effect)</span>
+						@T("Plugins.Developer.Glimpse.TabsTitle")
+						<span class="sub-title">(@(T("Plugins.Developer.Glimpse.TabsSubtitle")))</span>
 					</div>
 				</div>
 			</td>
