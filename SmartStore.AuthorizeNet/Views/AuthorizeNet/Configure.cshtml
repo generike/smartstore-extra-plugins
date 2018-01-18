@@ -62,7 +62,7 @@
                 @Html.SmartLabelFor(model => model.AdditionalFee)
             </td>
             <td class="adminData">
-                @Html.EditorFor(model => model.AdditionalFee)
+                @Html.EditorFor(model => model.AdditionalFee, new { postfix = Model.PrimaryStoreCurrencyCode })
                 @Html.ValidationMessageFor(model => model.AdditionalFee)
             </td>
         </tr>

@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Web.Mvc;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using SmartStore.Web.Framework;
 
 namespace SmartStore.UPS.Models
 {
-    public class UPSModel
+	public class UPSModel
     {
         public UPSModel()
         {
@@ -60,5 +60,6 @@ namespace SmartStore.UPS.Models
         [SmartResourceDisplayName("Plugins.Shipping.UPS.Fields.AvailableCarrierServices")]
         public IList<string> AvailableCarrierServices { get; set; }
         public string[] CheckedCarrierServices { get; set; }
-    }
+		public string PrimaryStoreCurrencyCode { get; set; }
+	}
 }

@@ -24,8 +24,9 @@ namespace SmartStore.AustraliaPost.Controllers
             model.GatewayUrl = _australiaPostSettings.GatewayUrl;
             model.ShippedFromZipPostalCode = _australiaPostSettings.ShippedFromZipPostalCode;
             model.AdditionalHandlingCharge = _australiaPostSettings.AdditionalHandlingCharge;
+			model.PrimaryStoreCurrencyCode = Services.StoreContext.CurrentStore.PrimaryStoreCurrency.CurrencyCode;
 
-            return View(model);
+			return View(model);
         }
 
         [HttpPost]
@@ -36,7 +37,6 @@ namespace SmartStore.AustraliaPost.Controllers
                 return Configure();
             }
             
-            //save settings
             _australiaPostSettings.GatewayUrl = model.GatewayUrl;
             _australiaPostSettings.ShippedFromZipPostalCode = model.ShippedFromZipPostalCode;
             _australiaPostSettings.AdditionalHandlingCharge = model.AdditionalHandlingCharge;

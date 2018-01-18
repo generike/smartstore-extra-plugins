@@ -36,8 +36,9 @@ namespace SmartStore.AuthorizeNet.Controllers
             model.LoginId = _authorizeNetPaymentSettings.LoginId;
             model.AdditionalFee = _authorizeNetPaymentSettings.AdditionalFee;
             model.TransactModeValues = _authorizeNetPaymentSettings.TransactMode.ToSelectList();
-            
-            return View(model);
+			model.PrimaryStoreCurrencyCode = Services.StoreContext.CurrentStore.PrimaryStoreCurrency.CurrencyCode;
+
+			return View(model);
         }
 
         [HttpPost]
@@ -48,7 +49,6 @@ namespace SmartStore.AuthorizeNet.Controllers
             if (!ModelState.IsValid)
                 return Configure();
 
-            //save settings
             _authorizeNetPaymentSettings.UseSandbox = model.UseSandbox;
             _authorizeNetPaymentSettings.TransactMode = (TransactMode)model.TransactModeId;
             _authorizeNetPaymentSettings.TransactionKey = model.TransactionKey;
@@ -66,13 +66,13 @@ namespace SmartStore.AuthorizeNet.Controllers
         {
             var model = new PaymentInfoModel();
             
-            //CC types
+            // CC types.
             model.CreditCardTypes.Add(new SelectListItem { Text = "Visa", Value = "Visa" });
             model.CreditCardTypes.Add(new SelectListItem { Text = "Master card", Value = "MasterCard" });
             model.CreditCardTypes.Add(new SelectListItem { Text = "Discover", Value = "Discover" });
             model.CreditCardTypes.Add(new SelectListItem { Text = "Amex", Value = "Amex" });
             
-            //years
+            // Years.
             for (int i = 0; i < 15; i++)
             {
                 string year = Convert.ToString(DateTime.Now.Year + i);
@@ -83,7 +83,7 @@ namespace SmartStore.AuthorizeNet.Controllers
                 });
             }
 
-            //months
+            // Months.
             for (int i = 1; i <= 12; i++)
             {
                 string text = (i < 10) ? "0" + i.ToString() : i.ToString();
@@ -94,7 +94,7 @@ namespace SmartStore.AuthorizeNet.Controllers
                 });
             }
 
-			//set postback values
+			// Set postback values.
 			var paymentData = _httpContext.GetCheckoutState().PaymentData;
 			model.CardholderName = (string)paymentData.Get("CardholderName");
             model.CardNumber = (string)paymentData.Get("CardNumber");
@@ -122,8 +122,6 @@ namespace SmartStore.AuthorizeNet.Controllers
         public override IList<string> ValidatePaymentForm(FormCollection form)
         {
             var warnings = new List<string>();
-
-            //validate
             var validator = new PaymentInfoValidator(Services.Localization);
             var model = new PaymentInfoModel
             {

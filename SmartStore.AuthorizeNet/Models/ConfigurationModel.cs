@@ -21,5 +21,7 @@ namespace SmartStore.AuthorizeNet.Models
 
         [SmartResourceDisplayName("Plugins.Payments.AuthorizeNet.Fields.AdditionalFee")]
         public decimal AdditionalFee { get; set; }
-    }
+
+		public string PrimaryStoreCurrencyCode { get; set; }
+	}
 }

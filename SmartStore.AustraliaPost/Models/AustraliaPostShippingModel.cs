@@ -15,5 +15,7 @@ namespace SmartStore.AustraliaPost.Models
         [DisplayNameAttribute("Shipped from zip")]
         [SmartResourceDisplayName("Plugins.Shipping.AustraliaPost.Fields.ShippedFromZipPostalCode")]
         public string ShippedFromZipPostalCode { get; set; }
-    }
+
+		public string PrimaryStoreCurrencyCode { get; set; }
+	}
 }
