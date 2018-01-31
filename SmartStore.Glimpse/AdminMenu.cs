@@ -10,7 +10,7 @@ namespace SmartStore.Glimpse
             var menuItem = new MenuItem().ToBuilder()
                 .Text("Glimpse Web Debugger")
 				.ResKey("Plugins.FriendlyName.SmartStore.Glimpse")
-				.Icon("fa fa-bug")
+				.Icon("bug")
 				.Action("ConfigurePlugin", "Plugin", new { systemName = "SmartStore.Glimpse", area = "Admin" })
                 .ToItem();
 
