@@ -85,8 +85,8 @@ namespace SmartStore.MailChimp.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        public ActionResult Configure(MailChimpSettingsModel model)
+        [HttpPost, FormValueRequired("save"), ActionName("Configure")]
+        public ActionResult ConfigurePost(MailChimpSettingsModel model)
         {
             string saveResult = "";
             if (ModelState.IsValid)
@@ -115,18 +115,16 @@ namespace SmartStore.MailChimp.Controllers
             return View(model);
         }
 
-        [HttpPost, ActionName("Index")]
-        [FormValueRequired("queueall")]
-        public ActionResult QueueAll()
+        [HttpPost, FormValueRequired("queueall"), ActionName("Configure")]
+        public ActionResult QueueAll(FormCollection formCollection)
         {
             _subscriptionEventQueueingService.QueueAll();
 
             return Configure();
         }
 
-        [HttpPost, ActionName("Index")]
-        [FormValueRequired("sync")]
-        public ActionResult Sync()
+        [HttpPost, FormValueRequired("sync"), ActionName("Configure")]
+        public ActionResult Sync(FormCollection formCollection)
         {
             var model = PrepareModel();
             try

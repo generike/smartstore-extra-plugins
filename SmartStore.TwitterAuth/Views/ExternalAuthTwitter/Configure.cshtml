@@ -5,7 +5,7 @@
 }
 
 <div class="plugin-actions">
-	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-primary" value="save">
+	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-warning" value="save">
 		<i class="fa fa-check"></i>
 		<span>@T("Admin.Common.Save")</span>
 	</button>
@@ -16,13 +16,9 @@
 	@Html.Raw(@T("Plugins.ExternalAuth.Twitter.AdminInstruction"))
 </div>
 
-<div class="clear"></div>
-
 @Html.Action("StoreScopeConfiguration", "Setting", new { area = "Admin" })
 
 @Html.ValidationSummary(false)
-
-<div class="clear"></div>
 
 @using (Html.BeginForm())
 {

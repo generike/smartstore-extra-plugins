@@ -6,138 +6,140 @@
     Layout = null; 
 }
 
-<div class="plugin-actions">
-	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-primary" value="save">
-		<i class="fa fa-check"></i>
-		<span>@T("Admin.Common.Save")</span>
-	</button>
-</div>
+@using (Html.BeginForm())
+{
 
-<div>
-    @using (Html.BeginForm())
-    {
-		<div class="plugin-configuration">
-			<div>
-				@if (ViewData["DemoModeHint"] != null)
-				{
-					<div class="alert alert-warning">
-						<button class="close" data-dismiss="alert">&#215;</button>
-						<div>@Html.Raw((string)ViewData["DemoModeHint"])</div>
-					</div>
-				}
-				<div class="alert alert-info">
+	<div class="plugin-actions">
+		<button id="SaveConfigButton" type="submit" name="save" class="btn btn-warning" value="save">
+			<i class="fa fa-check"></i>
+			<span>@T("Admin.Common.Save")</span>
+		</button>
+	</div>
+
+	<div class="plugin-configuration">
+		<div>
+			@if (ViewData["DemoModeHint"] != null)
+			{
+				<div class="alert alert-warning">
 					<button class="close" data-dismiss="alert">&#215;</button>
-					@Html.Raw(@T("Plugins.Misc.MailChimp.AdminInstruction"))
+					<div>@Html.Raw((string)ViewData["DemoModeHint"])</div>
 				</div>
-			</div>
-			<div>
-				<a href="http://mailchimp.com/" target="_blank">
-					<img src="@Url.Content("~/Plugins/SmartStore.MailChimp/Content/images/mailchimp-logo.jpg")" alt="mailchimp.com" />
-				</a>
+			}
+			<div class="alert alert-info">
+				<button class="close" data-dismiss="alert">&#215;</button>
+				@Html.Raw(@T("Plugins.Misc.MailChimp.AdminInstruction"))
 			</div>
 		</div>
+		<div>
+			<a href="http://mailchimp.com/" target="_blank">
+				<img src="@Url.Content("~/Plugins/SmartStore.MailChimp/Content/images/mailchimp-logo.jpg")" alt="mailchimp.com" />
+			</a>
+		</div>
+	</div>
     
-        <table class="adminContent">
-            <tr>
-                <td class="adminTitle">
-                    @Html.LabelFor(m => m.ApiKey)
-                </td>
-                <td class="adminData">
-                    @Html.EditorFor(m => m.ApiKey)
-                    @Html.ValidationMessageFor(m => m.ApiKey)
-                </td>
-            </tr>
-            <tr>
-                <td class="adminTitle">
-                    @Html.LabelFor(m => m.WebHookKey)
-                </td>
-                <td class="adminData">
-                    @Html.EditorFor(m => m.WebHookKey)
-                    @Html.ValidationMessageFor(m => m.WebHookKey)
-                </td>
-            </tr>
-            <tr>
-                <td class="adminTitle">
-                    @Html.LabelFor(m => m.DefaultListId)
-                </td>
-                <td class="adminData">
-                    @Html.DropDownListFor(m => m.DefaultListId, Model.ListOptions)
-                    @Html.ValidationMessageFor(m => m.DefaultListId)
-                </td>
-            </tr>
-            <tr>
-                <td class="adminTitle">
-                    @Html.LabelFor(m => m.AutoSync)
-                </td>
-                <td class="adminData">
-                    @Html.CheckBoxFor(m => m.AutoSync, new { data_toggler_for = "#pnlAutoSyncEachMinutes" })
-                    @Html.ValidationMessageFor(m => m.AutoSync)
-                </td>
-            </tr>
-            <tr id="pnlAutoSyncEachMinutes">
-                <td class="adminTitle">
-                    @Html.LabelFor(model => model.AutoSyncEachMinutes)
-                </td>
-                <td class="adminData">
-                    @Html.EditorFor(model => model.AutoSyncEachMinutes)
-                    @Html.ValidationMessageFor(model => model.AutoSyncEachMinutes)
-                </td>
-            </tr>
-            @if (!String.IsNullOrEmpty(Model.SaveResult))
-            {
-                <tr>
-                    <td colspan="2">
-						<div class="alert alert-info">
-							<button class="close" data-dismiss="alert">&#215;</button>
-							@Model.SaveResult
-						</div>
-                    </td>
-                </tr>
-            }
-        </table>
-
-		<table class="adminContent">
+    <table class="adminContent">
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(m => m.ApiKey)
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(m => m.ApiKey)
+                @Html.ValidationMessageFor(m => m.ApiKey)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(m => m.WebHookKey)
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(m => m.WebHookKey)
+                @Html.ValidationMessageFor(m => m.WebHookKey)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(m => m.DefaultListId)
+            </td>
+            <td class="adminData">
+                @Html.DropDownListFor(m => m.DefaultListId, Model.ListOptions)
+                @Html.ValidationMessageFor(m => m.DefaultListId)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(m => m.AutoSync)
+            </td>
+            <td class="adminData">
+                @Html.CheckBoxFor(m => m.AutoSync, new { data_toggler_for = "#pnlAutoSyncEachMinutes" })
+                @Html.ValidationMessageFor(m => m.AutoSync)
+            </td>
+        </tr>
+		<tbody id="pnlAutoSyncEachMinutes">
 			<tr>
-				<td colspan="2">
-					<div class="admin-config-group">
-						<div class="title">@T("Plugins.Misc.MailChimp.ManualSync.Hint")</div>
-					</div>
+				<td class="adminTitle">
+					@Html.SmartLabelFor(model => model.AutoSyncEachMinutes)
+				</td>
+				<td class="adminData">
+					@Html.EditorFor(model => model.AutoSyncEachMinutes)
+					@Html.ValidationMessageFor(model => model.AutoSyncEachMinutes)
 				</td>
 			</tr>
-			@if (Model.SyncResult.HasValue())
+			@if (!String.IsNullOrEmpty(Model.SaveResult))
 			{
 				<tr>
 					<td colspan="2">
 						<div class="alert alert-info">
 							<button class="close" data-dismiss="alert">&#215;</button>
-							@Html.Raw(Model.SyncResult)
+							@Model.SaveResult
 						</div>
 					</td>
 				</tr>
 			}
+		</tbody>
+
+		<tr>
+			<td colspan="2">
+				<div class="admin-config-group">
+					<div class="title">@T("Plugins.Misc.MailChimp.ManualSync.Hint")</div>
+				</div>
+			</td>
+		</tr>
+		@if (Model.SyncResult.HasValue())
+		{
 			<tr>
 				<td colspan="2">
-					<button type="submit" name="sync" value="sync" class="btn">
-						<i class="fa fa-user"></i>
-						<span>@T("Plugins.Misc.MailChimp.ManualSync")</span>
-					</button>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<div class="admin-config-group">
-						<div class="title">@T("Plugins.Misc.MailChimp.QueueAll.Hint")</div>
+					<div class="alert alert-info">
+						<button class="close" data-dismiss="alert">&#215;</button>
+						@Html.Raw(Model.SyncResult)
 					</div>
 				</td>
 			</tr>
-			<tr>
-				<td colspan="2">
-					<button type="submit" name="queueall" value="queueall" class="btn">
-						<i class="fa fa-mail-reply-all"></i>
-						<span>@T("Plugins.Misc.MailChimp.QueueAll")</span>
-					</button>
-				</td>
-			</tr>
-		</table>		
-    }
-</div>
+		}
+		<tr>
+			<td colspan="2">
+				<button type="submit" name="sync" value="sync" class="btn btn-secondary">
+					<i class="fa fa-user"></i>
+					<span>@T("Plugins.Misc.MailChimp.ManualSync")</span>
+				</button>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="admin-config-group">
+					<div class="title">@T("Plugins.Misc.MailChimp.QueueAll.Hint")</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<button type="submit" name="queueall" value="queueall" class="btn btn-secondary">
+					<i class="fa fa-reply-all"></i>
+					<span>@T("Plugins.Misc.MailChimp.QueueAll")</span>
+				</button>
+			</td>
+		</tr>
+	</table>		
+    
+
+}
+
