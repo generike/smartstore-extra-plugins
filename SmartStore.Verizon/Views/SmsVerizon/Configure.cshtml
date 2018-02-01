@@ -48,9 +48,20 @@
 				@Html.ValidationMessageFor(model => model.TestMessage)
 			</td>
 		</tr>
+		@if (Model.TestSmsResult.HasValue())
+		{
+			<tr>
+				<td class="adminTitle"></td>
+				<td class="adminData">
+					<div class="alert alert-@(Model.ErrorResult ? "danger" : "info")">
+						<button class="close" data-dismiss="alert">&#215;</button>
+						@Model.TestSmsResult
+					</div>
+				</td>
+			</tr>
+		}
 		<tr>
 			<td class="adminTitle">
-				&nbsp;
 			</td>
 			<td class="adminData">
 				<button type="submit" name="test-sms" value="test-sms" class="btn btn-secondary">
@@ -59,16 +70,5 @@
 				</button>
 			</td>
 		</tr>
-		@if (Model.TestSmsResult.HasValue())
-		{
-			<tr>
-				<td colspan="2">
-					<div class="alert alert-@(Model.ErrorResult ? "error" : "info")">
-						<button class="close" data-dismiss="alert">&#215;</button>
-						@Model.TestSmsResult
-					</div>
-				</td>
-			</tr>
-		}
 	</table>
 }
