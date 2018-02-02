@@ -23,8 +23,8 @@
 							@(Html.SmartStore().EntityPicker()
 								.For(x => x.ProductIds)
 								.HtmlAttribute("class", "btn btn-outline-secondary")
-								.DialogTitle(T("Plugins.DiscountRules.PurchasedAllProducts.Fields.Products"))
-								.Caption(T("Admin.Common.Search")))
+								.DialogTitle(T("Plugins.DiscountRules.PurchasedAllProducts.Fields.Products").JsText)
+								.Caption(T("Admin.Common.Search").JsText))
 						</div>
 					</div>
 					<button type="button" class="btn @(Model.RequirementId == 0 ? "btn-primary" : "btn-warning") btn-save-discount-rule mt-3">
