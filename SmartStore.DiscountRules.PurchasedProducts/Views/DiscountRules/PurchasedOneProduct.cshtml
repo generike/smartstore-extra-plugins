@@ -1,5 +1,4 @@
 ﻿@using SmartStore.Web.Framework
-@using SmartStore
 @model SmartStore.DiscountRules.PurchasedProducts.Models.PurchasedOneProductModel
 @{
 	Layout = "";
@@ -28,7 +27,7 @@
 						</div>
 					</div>
 
-					<button type="button" class="btn btn-primary btn-save-discount-rule mt-3">
+					<button type="button" class="btn @(Model.RequirementId == 0 ? "btn-primary" : "btn-warning") btn-save-discount-rule mt-3">
 						<i class="fa fa-check"></i>
 						<span>@T("Admin.Common.Save")</span>
 					</button>
