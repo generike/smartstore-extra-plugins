@@ -14,8 +14,8 @@
 				 data-discount-id='@Model.DiscountId'
 				 data-requirement-id='@Model.RequirementId'
 				 data-action-url='@Url.Action("PurchasedAllProducts")'
-				 data-fail-msg='@T("Admin.Promotions.Discounts.Requirements.FailedToSave").JsText'
-				 data-success-msg='@T("Admin.Promotions.Discounts.Requirements.Saved").JsText'>
+				 data-fail-msg=@T("Admin.Promotions.Discounts.Requirements.FailedToSave").JsText
+				 data-success-msg=@T("Admin.Promotions.Discounts.Requirements.Saved").JsText>
 				<div>
 					<div class="input-group">
 						@Html.TextBoxFor(model => model.ProductIds, new { data_routeparam = "productIds" })
@@ -23,8 +23,8 @@
 							@(Html.SmartStore().EntityPicker()
 								.For(x => x.ProductIds)
 								.HtmlAttribute("class", "btn btn-outline-secondary")
-								.DialogTitle(T("Plugins.DiscountRules.PurchasedAllProducts.Fields.Products").JsText)
-								.Caption(T("Admin.Common.Search").JsText))
+								.DialogTitle(T("Plugins.DiscountRules.PurchasedAllProducts.Fields.Products").Text.EncodeJsString('\'', false))
+								.Caption(T("Admin.Common.Search").Text.EncodeJsString('\'', false)))
 						</div>
 					</div>
 					<button type="button" class="btn @(Model.RequirementId == 0 ? "btn-primary" : "btn-warning") btn-save-discount-rule mt-3">
