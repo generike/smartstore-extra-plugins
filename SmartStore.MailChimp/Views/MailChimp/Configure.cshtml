@@ -20,13 +20,13 @@
 		<div>
 			@if (ViewData["DemoModeHint"] != null)
 			{
-				<div class="alert alert-warning">
-					<button class="close" data-dismiss="alert">&#215;</button>
+				<div class="alert alert-warning alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
 					<div>@Html.Raw((string)ViewData["DemoModeHint"])</div>
 				</div>
 			}
-			<div class="alert alert-info">
-				<button class="close" data-dismiss="alert">&#215;</button>
+			<div class="alert alert-info alert-dismissible">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
 				@Html.Raw(@T("Plugins.Misc.MailChimp.AdminInstruction"))
 			</div>
 		</div>
@@ -88,8 +88,8 @@
 			{
 				<tr>
 					<td colspan="2">
-						<div class="alert alert-info">
-							<button class="close" data-dismiss="alert">&#215;</button>
+						<div class="alert alert-info alert-dismissible">
+							<button type="button" class="close" data-dismiss="alert">&times;</button>
 							@Model.SaveResult
 						</div>
 					</td>
@@ -108,8 +108,8 @@
 		{
 			<tr>
 				<td colspan="2">
-					<div class="alert alert-info">
-						<button class="close" data-dismiss="alert">&#215;</button>
+					<div class="alert alert-info alert-dismissible">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
 						@Html.Raw(Model.SyncResult)
 					</div>
 				</td>
