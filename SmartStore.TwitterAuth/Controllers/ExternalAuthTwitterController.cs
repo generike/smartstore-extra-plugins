@@ -26,62 +26,51 @@ namespace SmartStore.TwitterAuth.Controllers
             ExternalAuthenticationSettings externalAuthenticationSettings,
 			ICommonServices services)
         {
-            this._oAuthProviderTwitterAuthorizer = oAuthProviderTwitterAuthorizer;
-            this._openAuthenticationService = openAuthenticationService;
-            this._externalAuthenticationSettings = externalAuthenticationSettings;
-			this._services = services;
+            _oAuthProviderTwitterAuthorizer = oAuthProviderTwitterAuthorizer;
+            _openAuthenticationService = openAuthenticationService;
+            _externalAuthenticationSettings = externalAuthenticationSettings;
+			_services = services;
 		}
 
 		private bool HasPermission(bool notify = true)
 		{
-			bool hasPermission = _services.Permissions.Authorize(StandardPermissionProvider.ManageExternalAuthenticationMethods);
-
+			var hasPermission = _services.Permissions.Authorize(StandardPermissionProvider.ManageExternalAuthenticationMethods);
 			if (notify && !hasPermission)
-				NotifyError(_services.Localization.GetResource("Admin.AccessDenied.Description"));
+			{
+				NotifyError(T("Admin.AccessDenied.Description"));
+			}
 
 			return hasPermission;
 		}
         
-        [AdminAuthorize, ChildActionOnly]
-        public ActionResult Configure()
+        [AdminAuthorize, ChildActionOnly, LoadSetting]
+        public ActionResult Configure(TwitterExternalAuthSettings settings)
         {
 			if (!HasPermission(false))
 				return AccessDeniedPartialView();
 
             var model = new ConfigurationModel();
-			int storeScope = this.GetActiveStoreScopeConfiguration(_services.StoreService, _services.WorkContext);
-			var settings = _services.Settings.LoadSetting<TwitterExternalAuthSettings>(storeScope);
-
             model.ConsumerKey = settings.ConsumerKey;
             model.ConsumerSecret = settings.ConsumerSecret;
-
-			var storeDependingSettingHelper = new StoreDependingSettingHelper(ViewData);
-			storeDependingSettingHelper.GetOverrideKeys(settings, model, storeScope, _services.Settings);
             
             return View(model);
         }
 
-        [HttpPost, AdminAuthorize, ChildActionOnly]
-		public ActionResult Configure(ConfigurationModel model, FormCollection form)
+        [HttpPost, AdminAuthorize, ChildActionOnly, SaveSetting]
+		public ActionResult Configure(ConfigurationModel model, TwitterExternalAuthSettings settings)
         {
 			if (!HasPermission(false))
-				return Configure();
+				return Configure(settings);
 
             if (!ModelState.IsValid)
-                return Configure();
-
-			var storeDependingSettingHelper = new StoreDependingSettingHelper(ViewData);
-			int storeScope = this.GetActiveStoreScopeConfiguration(_services.StoreService, _services.WorkContext);
-			var settings = _services.Settings.LoadSetting<TwitterExternalAuthSettings>(storeScope);
+                return Configure(settings);
 
             settings.ConsumerKey = model.ConsumerKey;
             settings.ConsumerSecret = model.ConsumerSecret;
 
-			storeDependingSettingHelper.UpdateSettings(settings, form, storeScope, _services.Settings);
+			NotifySuccess(T("Admin.Common.DataSuccessfullySaved"));
 
-			NotifySuccess(_services.Localization.GetResource("Admin.Common.DataSuccessfullySaved"));
-
-			return Configure();
+			return RedirectToConfiguration("SmartStore.TwitterAuth");
         }
 
         [ChildActionOnly]

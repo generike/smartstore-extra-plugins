@@ -33,6 +33,7 @@
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -149,6 +150,7 @@
     <Compile Include="Infrastructure\GlimpseSettingsPolicy.cs" />
     <Compile Include="Infrastructure\GlimpseHttpModule.cs" />
     <Compile Include="Infrastructure\GlimpseStarter.cs" />
+    <Compile Include="Models\ConfigurationModel.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
