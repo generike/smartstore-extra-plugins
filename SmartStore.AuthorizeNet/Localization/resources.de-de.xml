@@ -36,12 +36,6 @@
       <LocaleResource Name="Fields.LoginId.Hint">
         <Value>Geben Sie Ihre Login-ID an.</Value>
       </LocaleResource>
-      <LocaleResource Name="Fields.AdditionalFee">
-        <Value>Zusätzliche Gebühr</Value>
-      </LocaleResource>
-      <LocaleResource Name="Fields.AdditionalFee.Hint">
-        <Value>Geben Sie hier eine zusätzliche Gebühr an die dem Kunden für die Nutzung dieser Zahlart berechnet wird.</Value>
-      </LocaleResource>
     </Children>
   </LocaleResource>
 

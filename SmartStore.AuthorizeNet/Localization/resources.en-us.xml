@@ -36,12 +36,6 @@
       <LocaleResource Name="Fields.LoginId.Hint">
         <Value>Specify login identifier.</Value>
       </LocaleResource>
-      <LocaleResource Name="Fields.AdditionalFee">
-        <Value>Additional fee</Value>
-      </LocaleResource>
-      <LocaleResource Name="Fields.AdditionalFee.Hint">
-        <Value>Enter additional fee to charge your customers.</Value>
-      </LocaleResource>
     </Children>
   </LocaleResource>
 
