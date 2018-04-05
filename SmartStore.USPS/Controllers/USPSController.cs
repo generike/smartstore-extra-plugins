@@ -90,8 +90,8 @@ namespace SmartStore.USPS.Controllers
             }
             
             _uspsSettings.UseSandbox = model.UseSandbox;
-            _uspsSettings.Username = model.Username;
-            _uspsSettings.Password = model.Password;
+            _uspsSettings.Username = model.Username.TrimSafe();
+            _uspsSettings.Password = model.Password.TrimSafe();
             _uspsSettings.AdditionalHandlingCharge = model.AdditionalHandlingCharge;
             _uspsSettings.ZipPostalCodeFrom = model.ZipPostalCodeFrom;
 
@@ -165,8 +165,7 @@ namespace SmartStore.USPS.Controllers
 
             _settingService.SaveSetting(_uspsSettings);
 
-            return Configure();
-        }
-
+			return RedirectToConfiguration("SmartStore.USPS");
+		}
     }
 }

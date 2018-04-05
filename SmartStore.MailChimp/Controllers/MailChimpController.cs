@@ -92,8 +92,8 @@ namespace SmartStore.MailChimp.Controllers
             if (ModelState.IsValid)
             {
                 _settings.DefaultListId = model.DefaultListId;
-                _settings.ApiKey = model.ApiKey;
-                _settings.WebHookKey = model.WebHookKey;
+                _settings.ApiKey = model.ApiKey.TrimSafe();
+                _settings.WebHookKey = model.WebHookKey.TrimSafe();
 
                 _settingService.SaveSetting(_settings);
             }
@@ -112,8 +112,8 @@ namespace SmartStore.MailChimp.Controllers
             //set result text
             model.SaveResult = saveResult;
 
-            return View(model);
-        }
+			return RedirectToConfiguration("SmartStore.MailChimp");
+		}
 
         [HttpPost, FormValueRequired("queueall"), ActionName("Configure")]
         public ActionResult QueueAll(FormCollection formCollection)

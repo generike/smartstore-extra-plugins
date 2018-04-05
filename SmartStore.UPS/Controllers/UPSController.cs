@@ -114,9 +114,9 @@ namespace SmartStore.UPS.Controllers
 
             //save settings
             _upsSettings.Url = model.Url;
-            _upsSettings.AccessKey = model.AccessKey;
-            _upsSettings.Username = model.Username;
-            _upsSettings.Password = model.Password;
+            _upsSettings.AccessKey = model.AccessKey.TrimSafe();
+            _upsSettings.Username = model.Username.TrimSafe();
+            _upsSettings.Password = model.Password.TrimSafe();
             _upsSettings.AdditionalHandlingCharge = model.AdditionalHandlingCharge;
             _upsSettings.InsurePackage = model.InsurePackage;
             _upsSettings.CustomerClassification = (UPSCustomerClassification)Enum.Parse(typeof(UPSCustomerClassification), model.CustomerClassification);
@@ -150,8 +150,7 @@ namespace SmartStore.UPS.Controllers
 
             _settingService.SaveSetting(_upsSettings);
 
-            return Configure();
-        }
-
+			return RedirectToConfiguration("SmartStore.UPS");
+		}
     }
 }

@@ -65,8 +65,8 @@ namespace SmartStore.TwitterAuth.Controllers
             if (!ModelState.IsValid)
                 return Configure(settings);
 
-            settings.ConsumerKey = model.ConsumerKey;
-            settings.ConsumerSecret = model.ConsumerSecret;
+            settings.ConsumerKey = model.ConsumerKey.TrimSafe();
+            settings.ConsumerSecret = model.ConsumerSecret.TrimSafe();
 
 			NotifySuccess(T("Admin.Common.DataSuccessfullySaved"));
 

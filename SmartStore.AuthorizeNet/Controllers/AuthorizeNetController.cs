@@ -51,16 +51,16 @@ namespace SmartStore.AuthorizeNet.Controllers
 
             _authorizeNetPaymentSettings.UseSandbox = model.UseSandbox;
             _authorizeNetPaymentSettings.TransactMode = (TransactMode)model.TransactModeId;
-            _authorizeNetPaymentSettings.TransactionKey = model.TransactionKey;
-            _authorizeNetPaymentSettings.LoginId = model.LoginId;
+            _authorizeNetPaymentSettings.TransactionKey = model.TransactionKey.TrimSafe();
+            _authorizeNetPaymentSettings.LoginId = model.LoginId.TrimSafe();
             _authorizeNetPaymentSettings.AdditionalFee = model.AdditionalFee;
 
 			Services.Settings.SaveSetting(_authorizeNetPaymentSettings);
             
             model.TransactModeValues = _authorizeNetPaymentSettings.TransactMode.ToSelectList();
 
-            return View(model);
-        }
+			return RedirectToConfiguration("SmartStore.AuthorizeNet", false);
+		}
 
         public ActionResult PaymentInfo()
         {

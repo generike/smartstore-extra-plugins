@@ -79,9 +79,9 @@ namespace SmartStore.Fedex.Controllers
             }
 
             _fedexSettings.Url = model.Url;
-            _fedexSettings.Key = model.Key;
-            _fedexSettings.Password = model.Password;
-            _fedexSettings.AccountNumber = model.AccountNumber;
+            _fedexSettings.Key = model.Key.TrimSafe();
+            _fedexSettings.Password = model.Password.TrimSafe();
+            _fedexSettings.AccountNumber = model.AccountNumber.TrimSafe();
             _fedexSettings.MeterNumber = model.MeterNumber;
             _fedexSettings.DropoffType = (DropoffType)model.DropoffType;
             _fedexSettings.UseResidentialRates = model.UseResidentialRates;
@@ -124,7 +124,7 @@ namespace SmartStore.Fedex.Controllers
 
             _settingService.SaveSetting(_fedexSettings);
 
-            return Configure();
-        }
+			return RedirectToConfiguration("SmartStore.FedEx", false);
+		}
     }
 }
