@@ -17,10 +17,11 @@ using SmartStore.Services.Payments;
 
 namespace SmartStore.AuthorizeNet
 {
-    /// <summary>
-    /// AuthorizeNet payment processor
-    /// </summary>
-    public class Plugin : PaymentPluginBase, IConfigurable
+	/// <summary>
+	/// AuthorizeNet payment processor
+	/// </summary>
+	[DisplayOrder(77)]
+	public class Plugin : PaymentPluginBase, IConfigurable
     {
         #region Fields
 

@@ -39,10 +39,10 @@ namespace SmartStore.CanadaPost.Controllers
             //save settings
             _canadaPostSettings.Url = model.Url;
             _canadaPostSettings.Port = model.Port;
-            _canadaPostSettings.CustomerId = model.CustomerId;
+            _canadaPostSettings.CustomerId = model.CustomerId.TrimSafe();
             _settingService.SaveSetting(_canadaPostSettings);
 
-            return View(model);
-        }
+			return RedirectToConfiguration("SmartStore.CanadaPost", false);
+		}
     }
 }

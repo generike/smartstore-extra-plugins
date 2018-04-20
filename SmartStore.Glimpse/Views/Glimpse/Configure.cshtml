@@ -1,18 +1,19 @@
 ﻿@using SmartStore.Web.Framework;
-@model SmartStore.Glimpse.GlimpseSettings
+@model SmartStore.Glimpse.Models.ConfigurationModel
 @{
     Layout = "";
 }
 
 <div class="plugin-actions">
-	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-primary" value="save">
-		<i class="fa fa-check"></i>&nbsp;@T("Admin.Common.Save")
+	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-warning" value="save">
+		<i class="fa fa-check"></i>
+		<span>@T("Admin.Common.Save")</span>
 	</button>
 </div>
 
-<div class="alert alert-info">
-    <button class="close" data-dismiss="alert">&#215;</button>
+<div class="alert alert-info alert-dismissible">
     @Html.Raw(@T("Plugins.Developer.Glimpse.AdminInstruction", Url.Content("~/Glimpse")))
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
 </div>
 
 @Html.Action("StoreScopeConfiguration", "Setting", new { area = "Admin" })
@@ -23,7 +24,7 @@
 		<tr>
 			<td colspan="2">
 				<div class="admin-config-group">
-					<div class="title">Console</div>
+					<div class="title">@T("Plugins.Developer.Glimpse.ConsoleTitle")</div>
 				</div>
 			</td>
 		</tr>
@@ -70,8 +71,8 @@
 			<td colspan="2">
 				<div class="admin-config-group">
 					<div class="title">
-						Tabs
-						<span class="sub-title">(after changing one of following settings you must restart the app in order for them to take effect)</span>
+						@T("Plugins.Developer.Glimpse.TabsTitle")
+						<span class="sub-title">(@(T("Plugins.Developer.Glimpse.TabsSubtitle")))</span>
 					</div>
 				</div>
 			</td>

@@ -52,8 +52,8 @@ namespace SmartStore.MailChimp
         /// <param name="routeValues">Route values</param>
         public void GetConfigurationRoute(out string actionName, out string controllerName, out RouteValueDictionary routeValues)
         {
-            actionName = "Index";
-            controllerName = "Settings";
+            actionName = "Configure";
+            controllerName = "MailChimp";
 			routeValues = new RouteValueDictionary { { "area", "SmartStore.MailChimp" } };
         }
     }

@@ -5,8 +5,9 @@
 }
 
 <div class="plugin-actions">
-	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-primary" value="save">
-		<i class="fa fa-check"></i>&nbsp;@T("Admin.Common.Save")
+	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-warning" value="save">
+		<i class="fa fa-check"></i>
+		<span>@T("Admin.Common.Save")</span>
 	</button>
 </div>
 
@@ -27,7 +28,7 @@
                 @Html.SmartLabelFor(model => model.AdditionalHandlingCharge)
             </td>
             <td class="adminData">
-                @Html.EditorFor(model => model.AdditionalHandlingCharge)
+                @Html.EditorFor(model => model.AdditionalHandlingCharge, new { postfix = Model.PrimaryStoreCurrencyCode })
                 @Html.ValidationMessageFor(model => model.AdditionalHandlingCharge)
             </td>
         </tr>

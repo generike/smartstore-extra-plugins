@@ -71,5 +71,7 @@ namespace SmartStore.Fedex.Models
         public int DropoffType { get; set; }
         [SmartResourceDisplayName("Plugins.Shipping.Fedex.Fields.DropoffType")]
         public SelectList AvailableDropOffTypes { get; set; }
-    }
+
+		public string PrimaryStoreCurrencyCode { get; set; }
+	}
 }

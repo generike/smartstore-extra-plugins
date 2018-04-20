@@ -4,7 +4,7 @@ using SmartStore.Web.Framework;
 
 namespace SmartStore.USPS.Models
 {
-    public class USPSModel
+	public class USPSModel
     {
         public USPSModel()
         {
@@ -39,5 +39,6 @@ namespace SmartStore.USPS.Models
         [SmartResourceDisplayName("Plugins.Shipping.USPS.Fields.AvailableCarrierServicesInternational")]
         public IList<string> AvailableCarrierServicesInternational { get; set; }
         public string[] CheckedCarrierServicesInternational { get; set; }
-    }
+		public string PrimaryStoreCurrencyCode { get; set; }
+	}
 }

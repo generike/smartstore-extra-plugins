@@ -9,6 +9,7 @@ using SmartStore.Web.Framework;
 using SmartStore.Web.Framework.Controllers;
 using SmartStore.Web.Framework.Security;
 using SmartStore.Web.Framework.Settings;
+using SmartStore.Core.Logging;
 
 namespace SmartStore.TwitterAuth.Controllers
 {
@@ -25,68 +26,64 @@ namespace SmartStore.TwitterAuth.Controllers
             ExternalAuthenticationSettings externalAuthenticationSettings,
 			ICommonServices services)
         {
-            this._oAuthProviderTwitterAuthorizer = oAuthProviderTwitterAuthorizer;
-            this._openAuthenticationService = openAuthenticationService;
-            this._externalAuthenticationSettings = externalAuthenticationSettings;
-			this._services = services;
+            _oAuthProviderTwitterAuthorizer = oAuthProviderTwitterAuthorizer;
+            _openAuthenticationService = openAuthenticationService;
+            _externalAuthenticationSettings = externalAuthenticationSettings;
+			_services = services;
 		}
 
 		private bool HasPermission(bool notify = true)
 		{
-			bool hasPermission = _services.Permissions.Authorize(StandardPermissionProvider.ManageExternalAuthenticationMethods);
-
+			var hasPermission = _services.Permissions.Authorize(StandardPermissionProvider.ManageExternalAuthenticationMethods);
 			if (notify && !hasPermission)
-				NotifyError(_services.Localization.GetResource("Admin.AccessDenied.Description"));
+			{
+				NotifyError(T("Admin.AccessDenied.Description"));
+			}
 
 			return hasPermission;
 		}
         
-        [AdminAuthorize, ChildActionOnly]
-        public ActionResult Configure()
+        [AdminAuthorize, ChildActionOnly, LoadSetting]
+        public ActionResult Configure(TwitterExternalAuthSettings settings)
         {
 			if (!HasPermission(false))
 				return AccessDeniedPartialView();
 
             var model = new ConfigurationModel();
-			int storeScope = this.GetActiveStoreScopeConfiguration(_services.StoreService, _services.WorkContext);
-			var settings = _services.Settings.LoadSetting<TwitterExternalAuthSettings>(storeScope);
-
             model.ConsumerKey = settings.ConsumerKey;
             model.ConsumerSecret = settings.ConsumerSecret;
-
-			var storeDependingSettingHelper = new StoreDependingSettingHelper(ViewData);
-			storeDependingSettingHelper.GetOverrideKeys(settings, model, storeScope, _services.Settings);
             
             return View(model);
         }
 
-        [HttpPost, AdminAuthorize, ChildActionOnly]
-		public ActionResult Configure(ConfigurationModel model, FormCollection form)
+        [HttpPost, AdminAuthorize, ChildActionOnly, SaveSetting]
+		public ActionResult Configure(ConfigurationModel model, TwitterExternalAuthSettings settings)
         {
 			if (!HasPermission(false))
-				return Configure();
+				return Configure(settings);
 
             if (!ModelState.IsValid)
-                return Configure();
+                return Configure(settings);
 
-			var storeDependingSettingHelper = new StoreDependingSettingHelper(ViewData);
-			int storeScope = this.GetActiveStoreScopeConfiguration(_services.StoreService, _services.WorkContext);
-			var settings = _services.Settings.LoadSetting<TwitterExternalAuthSettings>(storeScope);
+            settings.ConsumerKey = model.ConsumerKey.TrimSafe();
+            settings.ConsumerSecret = model.ConsumerSecret.TrimSafe();
 
-            settings.ConsumerKey = model.ConsumerKey;
-            settings.ConsumerSecret = model.ConsumerSecret;
+			NotifySuccess(T("Admin.Common.DataSuccessfullySaved"));
 
-			storeDependingSettingHelper.UpdateSettings(settings, form, storeScope, _services.Settings);
-
-			NotifySuccess(_services.Localization.GetResource("Admin.Common.DataSuccessfullySaved"));
-
-			return Configure();
+			return RedirectToConfiguration("SmartStore.TwitterAuth");
         }
 
         [ChildActionOnly]
         public ActionResult PublicInfo()
         {
             return View();
+        }
+
+        public ActionResult LoginWithError()
+        {
+            _services.Notifier.Error(_services.Localization.GetResource("Plugins.ExternalAuth.Twitter.Error.NoCallBackUrl"));
+            
+            return new RedirectResult(Url.LogOn(""));
         }
 
         public ActionResult Login(string returnUrl)
@@ -105,9 +102,13 @@ namespace SmartStore.TwitterAuth.Controllers
             {
                 case OpenAuthenticationStatus.Error:
                     {
-                        if (!result.Success)
-                            foreach (var error in result.Errors)
+						if (!result.Success)
+						{
+							foreach (var error in result.Errors)
+							{
 								NotifyError(error);
+							}
+						}
 
                         return new RedirectResult(Url.LogOn(returnUrl));
                     }
@@ -117,27 +118,24 @@ namespace SmartStore.TwitterAuth.Controllers
                     }
                 case OpenAuthenticationStatus.AutoRegisteredEmailValidation:
                     {
-                        //result
-                        return RedirectToRoute("RegisterResult", new { resultId = (int)UserRegistrationType.EmailValidation });
+                        return RedirectToRoute("RegisterResult", new { resultId = (int)UserRegistrationType.EmailValidation, returnUrl });
                     }
                 case OpenAuthenticationStatus.AutoRegisteredAdminApproval:
                     {
-                        return RedirectToRoute("RegisterResult", new { resultId = (int)UserRegistrationType.AdminApproval });
+                        return RedirectToRoute("RegisterResult", new { resultId = (int)UserRegistrationType.AdminApproval, returnUrl });
                     }
                 case OpenAuthenticationStatus.AutoRegisteredStandard:
                     {
-                        return RedirectToRoute("RegisterResult", new { resultId = (int)UserRegistrationType.Standard });
+                        return RedirectToRoute("RegisterResult", new { resultId = (int)UserRegistrationType.Standard, returnUrl });
                     }
                 default:
                     break;
             }
-
+            
             if (result.Result != null)
-				return result.Result;
-
-            return HttpContext.Request.IsAuthenticated ?
-				RedirectToReferrer(returnUrl, "~/") :
-				new RedirectResult(Url.LogOn(returnUrl));
+                return result.Result;
+                
+            return HttpContext.Request.IsAuthenticated ? RedirectToReferrer(returnUrl, "~/") : new RedirectResult(Url.LogOn(returnUrl));
         }
     }
 }

@@ -8,9 +8,9 @@ namespace SmartStore.MailChimp
     {
         public void RegisterRoutes(RouteCollection routes)
         {
-            routes.MapRoute("SmartStore.MailChimp", 
-				"Plugins/SmartStore.MailChimp/Configure",
-                new { controller = "Settings", action = "Index" },
+            routes.MapRoute("SmartStore.MailChimp",
+                "Plugins/SmartStore.MailChimp/{action}",
+                new { controller = "MailChimp", action = "Configure" },
                 new[] { "SmartStore.MailChimp.Controllers" }
             )
 			.DataTokens["area"] = "SmartStore.MailChimp";

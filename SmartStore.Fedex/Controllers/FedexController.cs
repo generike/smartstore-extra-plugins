@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Text;
 using System.Web.Mvc;
-using SmartStore.Core;
 using SmartStore.Fedex.Domain;
 using SmartStore.Fedex.Models;
 using SmartStore.Services.Configuration;
@@ -45,24 +44,28 @@ namespace SmartStore.Fedex.Controllers
             model.PackingType = Convert.ToInt32(_fedexSettings.PackingType);
             model.PackingTypeValues = _fedexSettings.PackingType.ToSelectList();
             model.PassDimensions = _fedexSettings.PassDimensions;
+			model.PrimaryStoreCurrencyCode = Services.StoreContext.CurrentStore.PrimaryStoreCurrency.CurrencyCode;
 
+			// Load service names.
+			var services = new FedexServices();
+			var carrierServicesOfferedDomestic = _fedexSettings.CarrierServicesOffered;
+			foreach (string service in services.Services)
+			{
+				model.AvailableCarrierServices.Add(service);
+			}
 
-            var services = new FedexServices();
-            // Load service names
-            string carrierServicesOfferedDomestic = _fedexSettings.CarrierServicesOffered;
-            foreach (string service in services.Services)
-                model.AvailableCarrierServices.Add(service);
-
-            if (!String.IsNullOrEmpty(carrierServicesOfferedDomestic))
-                foreach (string service in services.Services)
-                {
-                    string serviceId = FedexServices.GetServiceId(service);
-                    if (!String.IsNullOrEmpty(serviceId) && !String.IsNullOrEmpty(carrierServicesOfferedDomestic))
-                    {
-                        if (carrierServicesOfferedDomestic.Contains(serviceId))
-                            model.CarrierServicesOffered.Add(service);
-                    }
-                }
+			if (!String.IsNullOrEmpty(carrierServicesOfferedDomestic))
+			{
+				foreach (string service in services.Services)
+				{
+					string serviceId = FedexServices.GetServiceId(service);
+					if (!String.IsNullOrEmpty(serviceId) && !String.IsNullOrEmpty(carrierServicesOfferedDomestic))
+					{
+						if (carrierServicesOfferedDomestic.Contains(serviceId))
+							model.CarrierServicesOffered.Add(service);
+					}
+				}
+			}
 
             return View(model);
         }
@@ -75,11 +78,10 @@ namespace SmartStore.Fedex.Controllers
                 return Configure();
             }
 
-            //save settings
             _fedexSettings.Url = model.Url;
-            _fedexSettings.Key = model.Key;
-            _fedexSettings.Password = model.Password;
-            _fedexSettings.AccountNumber = model.AccountNumber;
+            _fedexSettings.Key = model.Key.TrimSafe();
+            _fedexSettings.Password = model.Password.TrimSafe();
+            _fedexSettings.AccountNumber = model.AccountNumber.TrimSafe();
             _fedexSettings.MeterNumber = model.MeterNumber;
             _fedexSettings.DropoffType = (DropoffType)model.DropoffType;
             _fedexSettings.UseResidentialRates = model.UseResidentialRates;
@@ -94,31 +96,35 @@ namespace SmartStore.Fedex.Controllers
             _fedexSettings.PackingType = (PackingType)model.PackingType;
             _fedexSettings.PassDimensions = model.PassDimensions;
 
-
-
             // Save selected services
             var carrierServicesOfferedDomestic = new StringBuilder();
-            int carrierServicesDomesticSelectedCount = 0;
+            var carrierServicesDomesticSelectedCount = 0;
             if (model.CheckedCarrierServices != null)
             {
                 foreach (var cs in model.CheckedCarrierServices)
                 {
                     carrierServicesDomesticSelectedCount++;
-                    string serviceId = FedexServices.GetServiceId(cs);
-                    if (!String.IsNullOrEmpty(serviceId))
-                        carrierServicesOfferedDomestic.AppendFormat("{0}:", serviceId);
+                    var serviceId = FedexServices.GetServiceId(cs);
+					if (!String.IsNullOrEmpty(serviceId))
+					{
+						carrierServicesOfferedDomestic.AppendFormat("{0}:", serviceId);
+					}
                 }
             }
-            // Add default options if no services were selected (Priority Mail International, First-Class Mail International Package, and Express Mail International)
-            if (carrierServicesDomesticSelectedCount == 0)
-                _fedexSettings.CarrierServicesOffered = "FEDEX_2_DAY:PRIORITY_OVERNIGHT:FEDEX_GROUND:GROUND_HOME_DELIVERY:INTERNATIONAL_ECONOMY";
-            else
-                _fedexSettings.CarrierServicesOffered = carrierServicesOfferedDomestic.ToString();
 
+			// Add default options if no services were selected (Priority Mail International, First-Class Mail International Package, and Express Mail International)
+			if (carrierServicesDomesticSelectedCount == 0)
+			{
+				_fedexSettings.CarrierServicesOffered = "FEDEX_2_DAY:PRIORITY_OVERNIGHT:FEDEX_GROUND:GROUND_HOME_DELIVERY:INTERNATIONAL_ECONOMY";
+			}
+			else
+			{
+				_fedexSettings.CarrierServicesOffered = carrierServicesOfferedDomestic.ToString();
+			}
 
             _settingService.SaveSetting(_fedexSettings);
 
-            return Configure();
-        }
+			return RedirectToConfiguration("SmartStore.FedEx", false);
+		}
     }
 }

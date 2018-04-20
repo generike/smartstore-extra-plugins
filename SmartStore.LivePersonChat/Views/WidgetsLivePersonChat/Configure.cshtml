@@ -5,8 +5,9 @@
 }
 
 <div class="plugin-actions">
-	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-primary" value="save">
-		<i class="fa fa-check"></i>&nbsp;@T("Admin.Common.Save")
+	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-warning" value="save">
+		<i class="fa fa-check"></i>
+		<span>@T("Admin.Common.Save")</span>
 	</button>
 </div>
 	
@@ -22,7 +23,7 @@
 				@Html.SmartLabelFor(model => model.MonitoringCode)
 			</td>
 			<td class="adminData">
-				@Html.TextAreaFor(model => model.MonitoringCode, 10, 10, new { style = "width: 600px" })
+				@Html.TextAreaFor(model => model.MonitoringCode, new { rows = 10 })
 				@Html.ValidationMessageFor(model => model.MonitoringCode)
 			</td>
 		</tr>

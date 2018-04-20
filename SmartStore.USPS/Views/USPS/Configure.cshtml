@@ -5,8 +5,9 @@
 }
 
 <div class="plugin-actions">
-	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-primary" value="save">
-		<i class="fa fa-check"></i>&nbsp;@T("Admin.Common.Save")
+	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-warning" value="save">
+		<i class="fa fa-check"></i>
+		<span>@T("Admin.Common.Save")</span>
 	</button>
 </div>
 
@@ -45,7 +46,7 @@
                 @Html.SmartLabelFor(model => model.AdditionalHandlingCharge)
             </td>
             <td class="adminData">
-                @Html.EditorFor(model => model.AdditionalHandlingCharge)
+                @Html.EditorFor(model => model.AdditionalHandlingCharge, new { postfix = Model.PrimaryStoreCurrencyCode })
                 @Html.ValidationMessageFor(model => model.AdditionalHandlingCharge)
             </td>
         </tr>
@@ -63,15 +64,16 @@
                 @Html.SmartLabelFor(model => model.AvailableCarrierServicesDomestic)
             </td>
             <td class="adminData">
-                <div style="height: 250px; width: 300px; overflow: auto; border: solid 1px #bbb; padding: 10px">
-                    @foreach (var csd in Model.AvailableCarrierServicesDomestic)
-                    {
-                        <label class="checkbox">
-							<input type="checkbox" name="CheckedCarrierServicesDomestic" value="@(csd)" @(Model.CarrierServicesOfferedDomestic.Contains(csd) ? Html.Raw(" checked=\"checked\"") : null) />
-							@csd
-						</label>
-                    }
-                </div>
+				<div style="height: 250px;overflow: auto;" class="card p-3">
+					@foreach (var csd in Model.AvailableCarrierServicesDomestic)
+					{
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="CheckedCarrierServicesDomestic" value="@(csd)" @(Model.CarrierServicesOfferedDomestic.Contains(csd) ? Html.Raw(" checked=\"checked\"") : null) />
+							<label class="form-check-label">@csd</label>
+						</div>
+					}
+				</div>
+
             </td>
         </tr>
         <tr>
@@ -79,13 +81,13 @@
                 @Html.SmartLabelFor(model => model.AvailableCarrierServicesInternational)
             </td>
             <td class="adminData">
-                <div style="height: 250px; width: 300px; overflow: auto; border: solid 1px #bbb; padding: 10px">
+                <div style="height: 250px;overflow: auto;" class="card p-3">
                     @foreach (var csi in Model.AvailableCarrierServicesInternational)
                     {
-                        <label class="checkbox">
-							<input type="checkbox" name="CheckedCarrierServicesInternational" value="@(csi)" @(Model.CarrierServicesOfferedInternational.Contains(csi) ? Html.Raw(" checked=\"checked\"") : null) />
-							@csi
-						</label>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" name="CheckedCarrierServicesInternational" value="@(csi)" @(Model.CarrierServicesOfferedInternational.Contains(csi) ? Html.Raw(" checked=\"checked\"") : null) />
+							<label class="form-check-label">@csi</label>
+						</div>
                     }
                 </div>
             </td>

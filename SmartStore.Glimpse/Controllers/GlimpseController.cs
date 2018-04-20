@@ -1,40 +1,16 @@
-﻿using System;
-using System.Linq;
+﻿using System.Web;
 using System.Web.Mvc;
-using SmartStore.Core;
-using SmartStore.Utilities;
-using SmartStore.Services.Configuration;
-using SmartStore.Services.Localization;
-using SmartStore.Services.Stores;
-using SmartStore.Web.Framework.Controllers;
-using SmartStore.Web.Framework.Settings;
-using SmartStore.Web.Framework.UI;
 using Glimpse.Core.Framework;
-using System.Web;
+using SmartStore.ComponentModel;
+using SmartStore.Glimpse.Models;
+using SmartStore.Web.Framework.Controllers;
 using SmartStore.Web.Framework.Security;
+using SmartStore.Web.Framework.Settings;
 
 namespace SmartStore.Glimpse.Controllers
 {
-
 	public class GlimpseController : PluginControllerBase
     {
-		private readonly IWorkContext _workContext;
-		private readonly IStoreContext _storeContext;
-		private readonly IStoreService _storeService;
-        private readonly ISettingService _settingService;
-
-        public GlimpseController(
-            IWorkContext workContext,
-			IStoreContext storeContext, 
-            IStoreService storeService,
-            ISettingService settingService)
-        {
-			_workContext = workContext;
-			_storeContext = storeContext;
-			_storeService = storeService;
-            _settingService = settingService;
-        }
-
         public ActionResult Index([Bind(Prefix = "n")] string resourceName)
         {
             var httpContext = this.HttpContext;
@@ -58,38 +34,27 @@ namespace SmartStore.Glimpse.Controllers
 			return new EmptyResult();
         }
 
-        [ChildActionOnly]
-		[AdminAuthorize]
-        public ActionResult Configure()
+        [ChildActionOnly, AdminAuthorize, LoadSetting]
+        public ActionResult Configure(GlimpseSettings settings)
         {
-			// load settings for a chosen store scope
-			var storeScope = this.GetActiveStoreScopeConfiguration(_storeService, _workContext);
-			var model = _settingService.LoadSetting<GlimpseSettings>(storeScope);
+			var model = new ConfigurationModel();
+			MiniMapper.Map(settings, model);
 
-			var storeDependingSettingHelper = new StoreDependingSettingHelper(ViewData);
-            storeDependingSettingHelper.GetOverrideKeys(model, model, storeScope, _settingService);
-
-            return View(model);
+			return View(model);
         }
 
-        [HttpPost]
-		[AdminAuthorize]
-        [ChildActionOnly]
-        public ActionResult Configure(GlimpseSettings model, FormCollection form)
+        [HttpPost, AdminAuthorize, ChildActionOnly, SaveSetting]
+        public ActionResult Configure(ConfigurationModel model, GlimpseSettings settings)
         {
-            if (!ModelState.IsValid)
-                return Configure();
+			if (!ModelState.IsValid)
+			{
+				return Configure(settings);
+			}
 
-			ModelState.Clear();
+			MiniMapper.Map(model, settings);
+			NotifySuccess(T("Admin.Common.DataSuccessfullySaved"));
 
-            // load settings for a chosen store scope
-            var storeDependingSettingHelper = new StoreDependingSettingHelper(ViewData);
-            var storeScope = this.GetActiveStoreScopeConfiguration(_storeService, _workContext);
-
-            storeDependingSettingHelper.UpdateSettings(model /*settings*/, form, storeScope, _settingService);
-
-            return Configure();
-        }
-
+			return RedirectToConfiguration("SmartStore.Glimpse");
+		}
     }
 }

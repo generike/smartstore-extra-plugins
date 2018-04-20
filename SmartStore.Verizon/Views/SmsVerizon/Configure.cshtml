@@ -5,8 +5,9 @@
 }
 
 <div class="plugin-actions">
-	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-primary" value="save">
-		<i class="fa fa-check"></i>&nbsp;@T("Admin.Common.Save")
+	<button id="SaveConfigButton" type="submit" name="save" class="btn btn-warning" value="save">
+		<i class="fa fa-check"></i>
+		<span>@T("Admin.Common.Save")</span>
 	</button>
 </div>
 
@@ -47,26 +48,27 @@
 				@Html.ValidationMessageFor(model => model.TestMessage)
 			</td>
 		</tr>
-		<tr>
-			<td class="adminTitle">
-				&nbsp;
-			</td>
-			<td class="adminData">
-				<button type="submit" name="test-sms" value="test-sms" class="btn">
-					<i class="fa fa-envelope"></i>&nbsp;@T("Plugins.Sms.Verizon.SendTest")
-				</button>
-			</td>
-		</tr>
 		@if (Model.TestSmsResult.HasValue())
 		{
 			<tr>
-				<td colspan="2">
-					<div class="alert alert-@(Model.ErrorResult ? "error" : "info")">
-						<button class="close" data-dismiss="alert">&#215;</button>
+				<td class="adminTitle"></td>
+				<td class="adminData">
+					<div class="alert alert-@(Model.ErrorResult ? "danger" : "info") alert-dismissible">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
 						@Model.TestSmsResult
 					</div>
 				</td>
 			</tr>
 		}
+		<tr>
+			<td class="adminTitle">
+			</td>
+			<td class="adminData">
+				<button type="submit" name="test-sms" value="test-sms" class="btn btn-secondary">
+					<i class="fa fa-envelope"></i>
+					<span>@T("Plugins.Sms.Verizon.SendTest")</span>
+				</button>
+			</td>
+		</tr>
 	</table>
 }
