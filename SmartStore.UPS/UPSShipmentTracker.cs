@@ -82,7 +82,6 @@ namespace SmartStore.UPS
                 request.RequestOption = requestOption;
                 tr.Request = request;
                 tr.InquiryNumber = trackingNumber;
-                System.Net.ServicePointManager.ServerCertificateValidationCallback += delegate { return true; };
                 var trackResponse = track.ProcessTrack(tr);
                 result.AddRange(trackResponse.Shipment.SelectMany(c => c.Package[0].Activity.Select(x => ToStatusEvent(x))).ToList());
             }
