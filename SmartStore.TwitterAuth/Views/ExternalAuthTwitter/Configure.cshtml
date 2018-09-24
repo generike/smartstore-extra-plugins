@@ -1,5 +1,6 @@
 ﻿@using SmartStore.Web.Framework;
-@model SmartStore.TwitterAuth.Models.ConfigurationModel
+@using SmartStore.TwitterAuth.Models;
+@model ConfigurationModel
 @{
     Layout = "";
 }
@@ -17,7 +18,6 @@
 </div>
 
 @Html.Action("StoreScopeConfiguration", "Setting", new { area = "Admin" })
-
 @Html.ValidationSummary(false)
 
 @using (Html.BeginForm())
@@ -39,6 +39,19 @@
             <td class="adminData">
                 @Html.SettingEditorFor(model => model.ConsumerSecret)
                 @Html.ValidationMessageFor(model => model.ConsumerSecret)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.SmartLabelFor(model => model.CallbackUrls)
+            </td>
+            <td class="adminData">
+			    <div class="form-control-plaintext">
+				    @foreach (var url in Model.CallbackUrls)
+                    {
+                        <div>@url</div>
+                    }
+			    </div>
             </td>
         </tr>
     </table>

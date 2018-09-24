@@ -1,4 +1,4 @@
-﻿FriendlyName: Twitter
+﻿FriendlyName: Twitter Login
 SystemName: SmartStore.TwitterAuth
 Group: Security
 Version: 3.1.5

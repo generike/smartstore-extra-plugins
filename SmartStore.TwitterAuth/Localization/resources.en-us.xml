@@ -1,45 +1,38 @@
 ﻿<Language Name="English" IsDefault="false" IsRightToLeft="false">
-  <LocaleResource Name="Plugins.FriendlyName.SmartStore.TwitterAuth" AppendRootKey="false">
-    <Value>Twitter</Value>
-  </LocaleResource>
-	<LocaleResource Name="AdminInstruction">
-		<Value>
-      <![CDATA[
-        <p>
-          To configure this plugin so your customers can log in with their Twitter accounts the following steps need to be taken.
-        </p>
-        <ul>
-          <li>
-            First you need to create an App for your Twitter account. <a href="https://apps.twitter.com/app/new" target="_blank">https://apps.twitter.com/app/new</a>
-          </li>
-          <li>
-            Next to the obligatory fields (Name, Description & Website) it's very important to enter also a callback URL. 
-            It's sufficient to enter your store URL anew.
-          </li>
-          <li> 
-            Once the app was created you can copy the <i>consumer key</i> and the <i>secret</i> from the tab <i>Keys and Access Tokens</i>
-            and paste them into the corresponding fields further below on this page.
-          </li> 
-        </ul>
-      ]]>
-    </Value>
-	</LocaleResource>
-  <LocaleResource Name="Login">
-    <Value>Sign in with Twitter</Value>
-  </LocaleResource>
-  <LocaleResource Name="ConsumerKey">
-    <Value>Consumer key</Value>
-  </LocaleResource>
-  <LocaleResource Name="ConsumerKey.Hint">
-    <Value>Enter your consumer key here.</Value>
-  </LocaleResource>
-  <LocaleResource Name="ConsumerSecret">
-    <Value>Consumer secret</Value>
-  </LocaleResource>
-  <LocaleResource Name="ConsumerSecret.Hint">
-    <Value>Enter your consumer secret here.</Value>
-  </LocaleResource>
-  <LocaleResource Name="Error.NoCallBackUrl">
-    <Value>For the currently active Twitter app no callback URL was defined.</Value>
-  </LocaleResource>
+    <LocaleResource Name="Plugins.FriendlyName.SmartStore.TwitterAuth" AppendRootKey="false">
+        <Value>Twitter Login</Value>
+    </LocaleResource>
+    <LocaleResource Name="AdminInstruction">
+        <Value>
+            <![CDATA[<p>This is how you set up your Twitter login:</p><ul>
+    <li>Create a <a href="https://apps.twitter.com/" target="_blank">developer account</a> and a Twitter application.</li>
+    <li>In the application settings under <b class="font-weight-medium">Settings &gt; Callback URLs</b>, enter the Callback URLs listed below.
+Also enter a <b class="font-weight-medium">Privacy Policy URL</b> and a <b class="font-weight-medium">Terms of Service URL</b>.</li>
+    <li>Activate the option <b class="font-weight-medium">Request email addresses from users</b> under <b class="font-weight-medium">Permissions &gt; Additional Permissions</b>.</li>
+    <li>After creating the application you find the <b class="font-weight-medium">Consumer Key</b> and the <b class="font-weight-medium">Consumer Secret</b> 
+    under <b class="font-weight-medium">Keys and Access Tokens</b>. Please insert them into the corresponding fields further down on this page.</li> 
+</ul>]]>
+        </Value>
+    </LocaleResource>
+    <LocaleResource Name="Login">
+        <Value>Sign in with Twitter</Value>
+    </LocaleResource>
+    <LocaleResource Name="ConsumerKey">
+        <Value>Consumer key</Value>
+    </LocaleResource>
+    <LocaleResource Name="ConsumerKey.Hint">
+        <Value>Enter your consumer key here.</Value>
+    </LocaleResource>
+    <LocaleResource Name="ConsumerSecret">
+        <Value>Consumer secret</Value>
+    </LocaleResource>
+    <LocaleResource Name="ConsumerSecret.Hint">
+        <Value>Enter your consumer secret here.</Value>
+    </LocaleResource>
+    <LocaleResource Name="CallbackUrls">
+        <Value>Callback URLs</Value>
+    </LocaleResource>
+    <LocaleResource Name="CallbackUrls.Hint">
+        <Value>The Callback URLs to be entered at Twitter.</Value>
+    </LocaleResource>
 </Language>

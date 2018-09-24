@@ -1,47 +1,36 @@
 ﻿<Language Name="Deutsch" IsDefault="true" IsRightToLeft="false">
-  <LocaleResource Name="Plugins.FriendlyName.SmartStore.TwitterAuth" AppendRootKey="false">
-    <Value>Twitter</Value>
-  </LocaleResource>
-  <LocaleResource Name="AdminInstruction">
-    <Value>
-      <![CDATA[
-        <p>
-          Um dieses Plugin zu konfigurieren, so dass sich Ihre Kunden mit ihren Twitter-Benutzerkonten einloggen können, sind folgende Schritte notwendig.
-        </p>
-        
-        <ul>
-          <li>
-            Zunächst muss eine App für Ihr Twitterkonto erstellt werden. <a href="https://apps.twitter.com/app/new" target="_blank">https://apps.twitter.com/app/new</a>
-          </li>
-          <li>
-            Neben den Pflichtfeldern (Name, Description & Website) ist es wichtig auch eine Callback-URL anzugeben. 
-            Hier genügt es, einfach noch einmal die URL Ihres Shops anzugeben.
-          </li>
-          <li> 
-            Wenn die App erstellt wurde, können sie dem Reiter <i>Keys and Access Tokens</i> den benötigten <i>Consumer Key</i> und den <i>Secret</i> entnehmen
-            und diese in die entsprechenden Felder weiter unten auf dieser Seite einfügen.
-          </li> 
-        </ul>
-      ]]>
-    </Value>
-  </LocaleResource>
-  <LocaleResource Name="Login">
-    <Value>Mit Twitter anmelden</Value>
-  </LocaleResource>
-  <LocaleResource Name="ConsumerKey">
-    <Value>Consumer-Key</Value>
-  </LocaleResource>
-  <LocaleResource Name="ConsumerKey.Hint">
-    <Value>Geben Sie hier Ihren Consumer-Key an.</Value>
-  </LocaleResource>
-  <LocaleResource Name="ConsumerSecret">
-    <Value>Consumer-Secret</Value>
-  </LocaleResource>
-  <LocaleResource Name="ConsumerSecret.Hint">
-    <Value>Geben Sie hier Ihren Consumer-Secret an.</Value>
-  </LocaleResource>
-
-  <LocaleResource Name="Error.NoCallBackUrl">
-    <Value>Für die verwendete Twitter-App wurde keine Callback URL eingerichtet.</Value>
-  </LocaleResource>
+    <LocaleResource Name="Plugins.FriendlyName.SmartStore.TwitterAuth" AppendRootKey="false">
+        <Value>Twitter Login</Value>
+    </LocaleResource>
+    <LocaleResource Name="AdminInstruction">
+        <Value><![CDATA[<p>So richten Sie die Anmeldung per Twitter ein:</p><ul>
+    <li>Erstellen Sie ein <a href="https://apps.twitter.com/" target="_blank">Entwickler-Konto</a> und eine Twitter-Anwendung.</li>
+    <li>Tragen Sie in den Anwendungseinstellungen unter <b class="font-weight-medium">Settings &gt; Callback URLs</b> die unten aufgeführten Callback URLs ein.
+Hinterlegen Sie ebenfalls eine <b class="font-weight-medium">Privacy Policy URL</b> und eine <b class="font-weight-medium">Terms of Service URL</b>.</li>
+    <li>Aktivieren Sie unter <b class="font-weight-medium">Permissions &gt; Additional Permissions</b> die Option <b class="font-weight-medium">Request email addresses from users</b>.</li>
+    <li>Nach Erstellen der Anwendung finden Sie unter <b class="font-weight-medium">Keys and Access Tokens</b> den <b class="font-weight-medium">Consumer Key</b> und den 
+<b class="font-weight-medium">Consumer Secret</b>. Diese fügen Sie bitte in die entsprechenden Felder weiter unten auf dieser Seite ein.</li> 
+</ul>]]></Value>
+    </LocaleResource>
+    <LocaleResource Name="Login">
+        <Value>Mit Twitter anmelden</Value>
+    </LocaleResource>
+    <LocaleResource Name="ConsumerKey">
+        <Value>Consumer-Key</Value>
+    </LocaleResource>
+    <LocaleResource Name="ConsumerKey.Hint">
+        <Value>Geben Sie hier Ihren Consumer-Key an.</Value>
+    </LocaleResource>
+    <LocaleResource Name="ConsumerSecret">
+        <Value>Consumer-Secret</Value>
+    </LocaleResource>
+    <LocaleResource Name="ConsumerSecret.Hint">
+        <Value>Geben Sie hier Ihren Consumer-Secret an.</Value>
+    </LocaleResource>
+    <LocaleResource Name="CallbackUrls">
+        <Value>Callback URLs</Value>
+    </LocaleResource>
+    <LocaleResource Name="CallbackUrls.Hint">
+        <Value>Die bei Twitter zu hinterlegenden Callback URLs.</Value>
+    </LocaleResource>
 </Language>

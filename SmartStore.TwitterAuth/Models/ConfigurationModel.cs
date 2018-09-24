@@ -1,4 +1,5 @@
-﻿using SmartStore.Web.Framework;
+﻿using System.Collections.Generic;
+using SmartStore.Web.Framework;
 using SmartStore.Web.Framework.Modelling;
 
 namespace SmartStore.TwitterAuth.Models
@@ -10,5 +11,8 @@ namespace SmartStore.TwitterAuth.Models
 
         [SmartResourceDisplayName("Plugins.ExternalAuth.Twitter.ConsumerSecret")]
         public string ConsumerSecret { get; set; }
+
+        [SmartResourceDisplayName("Plugins.ExternalAuth.Twitter.CallbackUrls")]
+        public List<string> CallbackUrls { get; set; }
     }
 }

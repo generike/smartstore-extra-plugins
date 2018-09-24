@@ -1,28 +1,21 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
-using SmartStore.TwitterAuth.Core;
 using SmartStore.Web.Framework.Routing;
 
 namespace SmartStore.TwitterAuth
 {
     public partial class RouteProvider : IRouteProvider
     {
+        public int Priority => 0;
+
         public void RegisterRoutes(RouteCollection routes)
         {
-			routes.MapRoute("SmartStore.TwitterAuth",
+			routes.MapRoute(TwitterExternalAuthMethod.SystemName,
 				 "Plugins/SmartStore.TwitterAuth/{action}",
                  new { controller = "ExternalAuthTwitter", action = "Configure" },
                  new[] { "SmartStore.TwitterAuth.Controllers" }
             )
-			.DataTokens["area"] = Provider.SystemName;
-        }
-
-        public int Priority
-        {
-            get
-            {
-                return 0;
-            }
+			.DataTokens["area"] = TwitterExternalAuthMethod.SystemName;
         }
     }
 }
