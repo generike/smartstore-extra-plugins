@@ -132,7 +132,7 @@ namespace SmartStore.UPS
             sb.Append("<CustomerContext>Bare Bones Rate Request</CustomerContext>");
             sb.Append("<XpciVersion>1.0001</XpciVersion>");
             sb.Append("</TransactionReference>");
-            sb.Append("<RequestAction>Rate</RequestAction>");
+            
             sb.Append("<RequestOption>Shop</RequestOption>");
             sb.Append("</Request>");
             if (String.Equals(countryCodeFrom, "US", StringComparison.InvariantCultureIgnoreCase) == true)
@@ -146,7 +146,8 @@ namespace SmartStore.UPS
             }
             sb.Append("<Shipment>");
             sb.Append("<Shipper>");
-            sb.Append("<Address>");
+			sb.AppendFormat("<ShipperNumber>{0}</ShipperNumber>", _upsSettings.Username);
+			sb.Append("<Address>");
             sb.AppendFormat("<PostalCode>{0}</PostalCode>", zipPostalCodeFrom);
             sb.AppendFormat("<CountryCode>{0}</CountryCode>", countryCodeFrom);
             sb.Append("</Address>");
@@ -168,8 +169,11 @@ namespace SmartStore.UPS
             sb.Append("<Code>03</Code>");
             sb.Append("</Service>");
 
+			sb.Append("<RateInformation>");
+			sb.Append("<NegotiatedRatesIndicator/>");
+			sb.Append("</RateInformation>");
 
-            if ((!IsPackageTooHeavy(weight)) && (!IsPackageTooLarge(length, height, width)))
+			if ((!IsPackageTooHeavy(weight)) && (!IsPackageTooLarge(length, height, width)))
             {
                 sb.Append("<Package>");
                 sb.Append("<PackagingType>");
@@ -599,7 +603,6 @@ namespace SmartStore.UPS
                 PickupType = UPSPickupType.OneTimePickup,
                 PackagingType = UPSPackagingType.ExpressBox,
                 DefaultShippedFromZipPostalCode = "10001"
-
             };
 			_services.Settings.SaveSetting(settings);
 
