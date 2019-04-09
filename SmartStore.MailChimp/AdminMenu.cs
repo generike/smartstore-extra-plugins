@@ -11,7 +11,7 @@ namespace SmartStore.Mailchimp
 			var menuItem = new MenuItem().ToBuilder()
 				.Text("MailChimp E-Mail Synchronization")
 				.ResKey("Plugins.FriendlyName.SmartStore.MailChimp")
-				//.Icon("bug")
+				.Icon("fab fa-mailchimp")
 				.Action("ConfigurePlugin", "Plugin", new { systemName = "SmartStore.Mailchimp", area = "Admin" })
 				.ToItem();
 
