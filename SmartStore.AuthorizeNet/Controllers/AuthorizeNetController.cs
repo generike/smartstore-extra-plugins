@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using SmartStore.AuthorizeNet.Models;
-using SmartStore.AuthorizeNet.Validators;
+﻿using SmartStore.AuthorizeNet.Models;
 using SmartStore.Services.Payments;
 using SmartStore.Web.Framework;
 using SmartStore.Web.Framework.Controllers;
 using SmartStore.Web.Framework.Security;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
 namespace SmartStore.AuthorizeNet.Controllers
 {
-	public class AuthorizeNetController : PaymentControllerBase
+    public class AuthorizeNetController : PaymentControllerBase
     {
         private readonly AuthorizeNetSettings _authorizeNetPaymentSettings;
 		private readonly HttpContextBase _httpContext;
@@ -122,7 +121,7 @@ namespace SmartStore.AuthorizeNet.Controllers
         public override IList<string> ValidatePaymentForm(FormCollection form)
         {
             var warnings = new List<string>();
-            var validator = new PaymentInfoValidator(Services.Localization);
+            var validator = new PaymentInfoValidator(T);
             var model = new PaymentInfoModel
             {
                 CardholderName = form["CardholderName"],

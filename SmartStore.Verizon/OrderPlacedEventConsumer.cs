@@ -6,7 +6,7 @@ using SmartStore.Services.Orders;
 
 namespace SmartStore.Verizon
 {
-	public class OrderPlacedEventConsumer : IConsumer<OrderPlacedEvent>
+	public class OrderPlacedEventConsumer : IConsumer
     {
         private readonly VerizonSettings _verizonSettings;
         private readonly IPluginFinder _pluginFinder;
@@ -44,11 +44,10 @@ namespace SmartStore.Verizon
 			if (!(store.Id == 0 || _services.Settings.GetSettingByKey<string>(pluginDescriptor.GetSettingKey("LimitedToStores")).ToIntArrayContains(store.Id, true)))
 				return;
 
-            var plugin = pluginDescriptor.Instance() as VerizonSmsProvider;
-            if (plugin == null)
-                return;
+			if (!(pluginDescriptor.Instance() is VerizonSmsProvider plugin))
+				return;
 
-            var order = eventMessage.Order;
+			var order = eventMessage.Order;
 
 			//send SMS
 			var message = _services.Localization.GetResource("Plugins.Sms.Verizon.OrderPlacedMessage").FormatInvariant(order.GetOrderNumber());

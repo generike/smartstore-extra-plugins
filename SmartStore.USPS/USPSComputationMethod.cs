@@ -550,6 +550,7 @@ namespace SmartStore.USPS
                         //USPS issue fixed
                         char tm = (char)174;
                         serviceCode = serviceCode.Replace("&lt;sup&gt;&amp;reg;&lt;/sup&gt;", tm.ToString());
+                        serviceCode = serviceCode.Replace("&lt;sup&gt;&#8482;&lt;/sup&gt;", tm.ToString());
 
                         ShippingOption shippingOption = shippingOptions.Find((s) => s.Name == serviceCode);
                         if (shippingOption == null)

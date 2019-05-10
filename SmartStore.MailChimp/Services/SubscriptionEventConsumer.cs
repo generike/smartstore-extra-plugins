@@ -6,7 +6,7 @@ using SmartStore.MailChimp.Data;
 
 namespace SmartStore.MailChimp.Services
 {
-    public class SubscriptionEventConsumer : IConsumer<EmailSubscribedEvent>, IConsumer<EmailUnsubscribedEvent>
+    public class SubscriptionEventConsumer : IConsumer
     {
         private readonly ISubscriptionEventQueueingService _service;
         private readonly IPluginFinder _pluginFinder;

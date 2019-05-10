@@ -37,7 +37,7 @@
                 @Html.SmartLabelFor(model => model.Password)
             </td>
             <td class="adminData">
-                @Html.EditorFor(model => model.Password)
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { autocomplete = "new-password", value = Model.Password } })
                 @Html.ValidationMessageFor(model => model.Password)
             </td>
         </tr>

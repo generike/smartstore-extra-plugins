@@ -175,7 +175,7 @@ namespace SmartStore.Fedex
                     request.RequestedShipment.DropoffType = RateServiceWebReference.DropoffType.BUSINESS_SERVICE_CENTER;
                     break;
             }
-            request.RequestedShipment.TotalInsuredValue = new Money();
+            request.RequestedShipment.TotalInsuredValue = new RateServiceWebReference.Money();
             request.RequestedShipment.TotalInsuredValue.Amount = orderSubTotal;
             request.RequestedShipment.TotalInsuredValue.Currency = currencyCode;
             request.RequestedShipment.ShipTimestamp = DateTime.Now; // Shipping date and time
@@ -302,7 +302,7 @@ namespace SmartStore.Fedex
                 request.RequestedShipment.RequestedPackageLineItems[0].Dimensions.Width = _fedexSettings.PassDimensions ? width.ToString() : "0";
                 request.RequestedShipment.RequestedPackageLineItems[0].Dimensions.Height = _fedexSettings.PassDimensions ? height.ToString() : "0";
                 request.RequestedShipment.RequestedPackageLineItems[0].Dimensions.Units = RateServiceWebReference.LinearUnits.IN;
-                request.RequestedShipment.RequestedPackageLineItems[0].InsuredValue = new Money(); // insured value
+                request.RequestedShipment.RequestedPackageLineItems[0].InsuredValue = new RateServiceWebReference.Money(); // insured value
                 request.RequestedShipment.RequestedPackageLineItems[0].InsuredValue.Amount = orderSubTotal;
                 request.RequestedShipment.RequestedPackageLineItems[0].InsuredValue.Currency = currencyCode;
 
@@ -355,7 +355,7 @@ namespace SmartStore.Fedex
                     request.RequestedShipment.RequestedPackageLineItems[i].Dimensions.Width = _fedexSettings.PassDimensions ? width2.ToString() : "0";
                     request.RequestedShipment.RequestedPackageLineItems[i].Dimensions.Height = _fedexSettings.PassDimensions ? height2.ToString() : "0";
                     request.RequestedShipment.RequestedPackageLineItems[i].Dimensions.Units = RateServiceWebReference.LinearUnits.IN;
-                    request.RequestedShipment.RequestedPackageLineItems[i].InsuredValue = new Money(); // insured value
+                    request.RequestedShipment.RequestedPackageLineItems[i].InsuredValue = new RateServiceWebReference.Money(); // insured value
                     request.RequestedShipment.RequestedPackageLineItems[i].InsuredValue.Amount = orderSubTotal2;
                     request.RequestedShipment.RequestedPackageLineItems[i].InsuredValue.Currency = currencyCode;
                 }
@@ -404,7 +404,7 @@ namespace SmartStore.Fedex
                     request.RequestedShipment.RequestedPackageLineItems[i].Dimensions.Width = width.ToString();
                     request.RequestedShipment.RequestedPackageLineItems[i].Dimensions.Units = RateServiceWebReference.LinearUnits.IN;
 
-                    request.RequestedShipment.RequestedPackageLineItems[i].InsuredValue = new Money(); // insured value
+                    request.RequestedShipment.RequestedPackageLineItems[i].InsuredValue = new RateServiceWebReference.Money(); // insured value
                     request.RequestedShipment.RequestedPackageLineItems[i].InsuredValue.Amount = sci.Item.Product.Price;
                     request.RequestedShipment.RequestedPackageLineItems[i].InsuredValue.Currency = currencyCode;
 
@@ -543,7 +543,7 @@ namespace SmartStore.Fedex
                 request.RequestedShipment.RequestedPackageLineItems[i].Dimensions.Height = height.ToString();
                 request.RequestedShipment.RequestedPackageLineItems[i].Dimensions.Width = width.ToString();
                 request.RequestedShipment.RequestedPackageLineItems[i].Dimensions.Units = RateServiceWebReference.LinearUnits.IN;
-                request.RequestedShipment.RequestedPackageLineItems[i].InsuredValue = new Money(); // insured value
+                request.RequestedShipment.RequestedPackageLineItems[i].InsuredValue = new RateServiceWebReference.Money(); // insured value
                 request.RequestedShipment.RequestedPackageLineItems[i].InsuredValue.Amount = orderSubTotalPerPackage;
                 request.RequestedShipment.RequestedPackageLineItems[i].InsuredValue.Currency = currencyCode;
             }
@@ -608,7 +608,7 @@ namespace SmartStore.Fedex
             return result;
         }
 
-        private Decimal ConvertChargeToPrimaryCurrency(Money charge, Currency requestedShipmentCurrency)
+        private Decimal ConvertChargeToPrimaryCurrency(RateServiceWebReference.Money charge, Currency requestedShipmentCurrency)
         {
             decimal amount;
 			var primaryStoreCurrency = _services.StoreContext.CurrentStore.PrimaryStoreCurrency;

@@ -21,7 +21,7 @@ namespace SmartStore.Glimpse.Infrastructure
     {
         private const string RuntimeKey = "__GlimpseRuntime";
         private const string LoggerKey = "__GlimpseLogger";
-        private static readonly object LockObj = new object();
+        private static readonly object _lock = new object();
         private static readonly Factory Factory;
 
         static GlimpseHttpModule()
@@ -93,7 +93,7 @@ namespace SmartStore.Glimpse.Infrastructure
 
             if (runtime == null)
             {
-                lock (LockObj)
+                lock (_lock)
                 {
                     runtime = applicationState[RuntimeKey] as IGlimpseRuntime;
 
