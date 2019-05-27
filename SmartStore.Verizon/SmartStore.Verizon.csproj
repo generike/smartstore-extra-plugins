@@ -116,12 +116,16 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+      <Compile Include="..\..\AssemblySharedInfo.cs">
+          <Link>Properties\AssemblySharedInfo.cs</Link>
+      </Compile>
+      <Compile Include="..\..\AssemblyVersionInfo.cs">
+          <Link>Properties\AssemblyVersionInfo.cs</Link>
+      </Compile>
     <Compile Include="AdminMenu.cs" />
     <Compile Include="Controllers\SmsVerizonController.cs" />
     <Compile Include="Models\SmsVerizonModel.cs" />
     <Compile Include="OrderPlacedEventConsumer.cs" />
-    <Compile Include="Properties\AssemblySharedInfo.cs" />
-    <Compile Include="Properties\AssemblyVersionInfo.cs" />
     <Compile Include="RouteProvider.cs" />
     <Compile Include="VerizonSettings.cs" />
     <Compile Include="VerizonSmsProvider.cs" />
