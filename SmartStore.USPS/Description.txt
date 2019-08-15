@@ -1,8 +1,8 @@
 ﻿FriendlyName: USPS (US Postal Service)
 SystemName: SmartStore.USPS
 Group: Shipping
-Version: 3.2.1
-MinAppVersion: 3.2.1
+Version: 3.2.2
+MinAppVersion: 3.2.2
 DisplayOrder: 1
 FileName: SmartStore.USPS.dll
 ResourceRootKey: Plugins.Shipping.USPS

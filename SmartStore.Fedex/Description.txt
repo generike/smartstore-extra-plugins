@@ -1,8 +1,8 @@
 ﻿FriendlyName: FedEx
 SystemName: SmartStore.FedEx
 Group: Shipping
-Version: 3.2.1
-MinAppVersion: 3.2.1
+Version: 3.2.2
+MinAppVersion: 3.2.2
 DisplayOrder: 1
 FileName: SmartStore.Fedex.dll
 ResourceRootKey: Plugins.Shipping.FedEx
