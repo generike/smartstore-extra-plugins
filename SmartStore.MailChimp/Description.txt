@@ -1,8 +1,8 @@
 ﻿FriendlyName: MailChimp E-Mail Synchronization
 SystemName: SmartStore.MailChimp
 Group: Marketing
-Version: 3.2.1
-MinAppVersion: 3.2.1
+Version: 3.2.2
+MinAppVersion: 3.2.2
 DisplayOrder: 1
 FileName: SmartStore.MailChimp.dll
 ResourceRootKey: Plugins.Misc.MailChimp
